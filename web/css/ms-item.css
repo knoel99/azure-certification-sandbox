@@ -1,0 +1,925 @@
+@font-face {
+    font-family: "Segoe UI";
+    src: local("Segoe UI"),
+    url("/Templates/Common Scripts/Fonts/MacOS/Segoe UI/segoeui.ttf") format("truetype");
+}
+:root {
+	--scrUp: url('../media/scrl-up.svg');
+	--scrDwn: url('../media/scrl-dwn.svg');
+	--scrRt: url('../media/scrl-right.svg');
+	--scrLt: url('../media/scrl-left.svg');
+	--arwDwn: url('../media/dwn-arw.svg');
+	
+	--check: url('../media/rv-check.svg');
+	--checkOff: url('../media/rv-check-off.svg');
+	
+	--splitterVerticalImg: url('../media/splitter_5dots_default_vertical.png');
+	--splitterVerticalHoverImg: url('../media/splitter_5dots_hover_vertical.png');
+	--splitterVerticalClickedImg: url('../media/splitter_5dots_clicked-on_vertical.png');
+	
+	--splitterHorizontalImg: url('../media/splitter_5dots_default_horizontal.png');
+	--splitterHorizontalHoverImg: url('../media/splitter_5dots_hover_horizontal.png');
+	--splitterHorizontalClickedImg: url('../media/splitter_5dots_clicked-on_horizontal.png');
+	
+	--ms-window-color: #fff;
+	--ms-window-text-color: #323130;
+	--ms-hotlight-color: #2a4464;
+	--ms-hotlight-hover: #2a4464;
+	--ms-button-text-color: #fff;
+	--ms-button-face-color:	#666666;
+	
+	--ms-standard-link-color: blue;
+	
+	--ms-dark-blue: #2a4464;
+	--ms-white-txt: #fff;
+	--ms-black-txt: #000;
+	--ms-tb-gray: #f4f3f5;
+	--ms-tb-gray-border: #f4f3f5;
+	--ms-cs-gray: #f5f5f5;
+	--ms-slider-gray: #333;
+	--ms-base-gray: #a2a2a2;
+	--ms-preexam-bg-color: #f3f2f1;
+	
+	--ms-question-header: #121212;
+	
+	--ms-light-border: #919191;
+	--ms-dark-border: #505050;
+	--ms-item-outline-color: #d4d4d4;
+	
+	--ms-form-gray: #f5f5f5;
+	--ms-form-light-gray: #efefef;
+	--ms-form-ligh-gray-hover: #e8e8e8;
+	
+	--ms-calc-background: #f3f3f3;
+	--ms-calc-op-btn-background: #f9f9f9;
+	--ms-calc-num-btn-background: #fff;
+	--ms-calc-btn-text: #1b1b1b;
+	--ms-calc-history-text: #616161;
+	--ms-calc-btn-border: #e5e5e5;
+	
+	--ms-focus-highligh-color: #5F91EC;
+}
+html.dark-mode {
+	--ms-window-color: #202020;
+	--ms-window-text-color: #fff;
+	--ms-hotlight-color: #75b6e7;
+	--ms-hotlight-hover: #278cda;
+	--ms-gray-text-color: #a6a6a6;
+	--ms-highlight-text-color: #263b50;
+	--ms-highlight-color: #8ee3f0;
+	--ms-button-text-color: #fff;
+	--ms-button-face-color: #262937;
+	--ms-dark-border: #505050;
+	--ms-light-border: #d2d2d2;
+	--ms-item-outline-color: #d4d4d4;
+	
+	--ms-standard-link-color: #75b6e7;
+	
+	--ms-white-txt: #000;
+	--ms-black-txt: #fff;
+	
+	--ms-tb-gray: #404040;
+	--ms-tb-gray-border: #757575;
+	--ms-cs-gray: #505050;
+	--ms-slider-gray: #fff;
+	--ms-base-gray: #757575;
+	--ms-question-header: #fff;
+	--ms-preexam-bg-color: #091f2c;
+	
+	--ms-form-gray: #262937;
+	
+	
+	--ms-calc-background: #202020;
+	--ms-calc-op-btn-background: #323232;
+	--ms-calc-num-btn-background: #3b3b3b;
+	--ms-calc-btn-text: #fff;
+	--ms-calc-history-text: #a6a6a6;
+	--ms-calc-btn-border: #303030;
+	
+	--ms-focus-highligh-color: #5F91EC;
+}
+html.yellow-on-black {
+	--ms-window-color: #000;
+	--ms-window-text-color: #ffffff;
+	--ms-hotlight-color: #ffff00;
+	--ms-hotlight-hover: #ffff00;
+	--ms-gray-text-color: #a6a6a6;
+	--ms-highlight-text-color: #000;
+	--ms-highlight-color: #ffff00;
+	--ms-button-text-color: #fff;
+	--ms-button-face-color:	#202020;
+	
+	--ms-standard-link-color: #ffff00;
+	
+	--ms-black-txt: #fff;
+	--ms-white-txt: #000;
+	
+	--ms-tb-gray: #000;
+	--ms-tb-gray-border: #e6e6e6;
+	
+	--ms-cs-gray: #5A5A5A;
+	--ms-slider-gray: #fff;
+	--ms-base-gray: #e6e6e6;
+	--ms-preexam-bg-color: #000;
+	
+	--ms-question-header: #ffffff;
+	
+	--ms-dark-border: #505050;
+	--ms-light-border: #d2d2d2;
+	--ms-item-outline-color: #d4d4d4;
+	
+	--ms-form-gray: #2d2d2d;
+	
+	--ms-calc-background: #000;
+	--ms-calc-op-btn-background: #000;
+	--ms-calc-num-btn-background: #000;
+	--ms-calc-btn-text: #fff;
+	--ms-calc-history-text: #fff;
+	--ms-calc-btn-border: #ffff00;
+	
+	--ms-focus-highligh-color: #5F91EC;
+}
+.ITSHotAreaBody #ITD-ITEM .its-item-table,
+.ITSActiveScreenBody #ITD-ITEM .its-item-table,
+.ITSDragDropBody #ITD-ITEM .its-item-table,
+.ITSBuildListBody #ITD-ITEM .its-item-table {
+	height: 100%;
+}
+.ITSDisplay #ITD-ITEM > section:first-of-type {
+	height: 100%;
+}
+body.ITSDisplay {
+	overflow: auto;
+}
+.ITSDisplay { padding:1.5rem;}
+.ITSStem,
+.its-item-table.ITSStem {
+	WIDTH: 89.4%; 
+	VERTICAL-ALIGN: top; 
+	PADDING-BOTTOM: 0.3125rem; 
+	PADDING-TOP: 0.3125rem; 
+	PADDING-LEFT: 0px; 
+	MARGIN-LEFT: 3.75rem;; 
+	MARGIN-TOP: 1.875rem; 
+	PADDING-RIGHT: 0.3125rem; 
+	MARGIN-RIGHT: 0%; 
+	margin-bottom:1rem;
+}
+.ITSStemText P {
+padding: 0px
+}
+.ITSStemText img {
+padding: 0px
+}
+.ITSStemText table td:lang(ja) {
+	white-space: nowrap;
+}
+.ITSStem table:lang(ar), .ITSContentRight table:lang(ar) {
+    border-left: solid windowtext 1px !important;
+}
+.ITSStemSequence {
+VERTICAL-ALIGN: top; display-for:item;
+}
+.ITSMCOptionLabelText, .ITSMCOptionLabelTextOn {
+	TEXT-ALIGN: right; labeling-scheme: letter;
+}
+.ITSMCOptionLabelTextCell, .ITSMCOptionLabelTextCellOn { width: .7rem; }
+.ITSMCOptionLabelSeparator, .ITSMCOptionLabelSeparatorOn {
+	padding:0;   label-separator:"."
+}
+.ITSMCOptionLabelSeparatorCell, .ITSMCOptionLabelSeparatorOnCell { }
+.ITSMCOptionText, .ITSMCOptionTextOn {
+	padding: .25rem;
+}
+.its-item-td.ITSMCOptionTextCell, .its-item-td.ITSMCOptionTextCellOn {
+	 WIDTH: calc(100% - 3rem); 
+	 OUTLINE-WIDTH: 1px; 
+	 OUTLINE-STYLE: solid; 
+	 OUTLINE-COLOR: lightgray;
+	 padding: 0;
+	 margin-top: 1px;
+}
+.ITSMCOptionTextCellFocus,
+.ITSMCOptionTextCellFocus:focus,
+.ITSMCOptionTextCellFocus:hover,
+.ITSMCOptionTextCell:hover {
+	CURSOR: pointer; OUTLINE-WIDTH: 2px; OUTLINE-STYLE: solid; OUTLINE-COLOR: #5F91EC;
+}
+.its-item-table.ITSMCOptionTableOn, .its-item-table.ITSMCOptionTable  {
+	WIDTH: calc(100% - 3.75rem); margin: 0 0 1.25rem 3.75rem; CURSOR: pointer; padding:0.3125rem 1.25rem 0 0;
+}
+.ITSMCOptionTextOn p, 
+.ITSMCOptionText p, 
+.ITSMCOptionTextOn span, 
+.ITSMCOptionText span { 
+	display: inline; 
+}
+.ITSMCOptionText {}
+.ITSMCOptionTextOn {}
+.ITSMCOptionTable, .ITSMCOptionTableOn {
+	CURSOR: pointer; 
+}
+.ITSMCOptionMarker, .ITSMCOptionMarkerOn {
+	padding: 0; option-selector: Circle; multiple-option-selector: Box
+}
+.its-item-td.ITSMCOptionMarkerCell,
+.its-item-td.ITSMCOptionMarkerCellOn {
+	min-width: 1.75em;
+	padding: 1px 0 0 0;
+	position: relative;
+}
+.ITSMCRowOptionCell {
+BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; VERTICAL-ALIGN: top; BORDER-TOP: medium none; BORDER-RIGHT: medium none; PADDING-TOP: 0px
+}
+.ITSMCRowOptionCellOn {
+BORDER-BOTTOM: black solid; BORDER-LEFT: black solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; VERTICAL-ALIGN: top; BORDER-TOP: black solid; BORDER-RIGHT: black solid; PADDING-TOP: 0px
+}
+.ITSMCRowTextCell {
+BORDER-BOTTOM: medium none; TEXT-ALIGN: center; BORDER-LEFT: medium none; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; VERTICAL-ALIGN: top; BORDER-TOP: medium none; BORDER-RIGHT: medium none; PADDING-TOP: 0px
+}
+.its-item-visually-hidden {
+                                                position: absolute !important;
+                                                clip: rect(1px 1px 1px 1px); 
+                                                clip: rect(1px, 1px, 1px, 1px);
+                                                padding:0 !important;
+                                                border:0 !important;
+                                                height: 1px !important; 
+                                                width: 1px !important; 
+                                                overflow: hidden;
+                                }
+.ITSMCOptionLabelTextCell, .ITSMCOptionLabelSeparatorCell, 
+.ITSMCOptionLabelSeparator, .ITSMCOptionLabelText, td ITSMCOptionTextCell{}
+div.its-item-td.ITSStemSequence { display: none; }
+.ITSMCOptionTableOn .its-item-tr > .ITSMCOptionACCLabel,
+.ITSMCOptionTable .its-item-tr > .ITSMCOptionACCLabel {
+	width: calc(100% - 1.4rem); 
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+}
+.its-item-td .ITSMCOptionTextCell{width:100%}
+.its-item-table {
+	width:99%; 
+	border-spacing:0px;
+	margin: 0;
+	border: 0;
+}
+.its-item-tr {                                     
+	width: auto;
+	
+	border: 0;
+	margin: 0;
+	padding: 0;
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+}
+.its-item-td { 
+
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#item-tools {
+	padding: .25em 0 2em 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+.ITSActiveScreenBody #item-tools,
+.ITSHotAreaBody #item-tools,
+.ITSDragDropBody #item-tools,
+.ITSBuildListBody #item-tools{
+	padding: .25em 0 .25em 0;
+}
+.answer-reset {
+  background-color: var(--ms-button-face-color);
+  border-radius:99em;
+  border:solid var(--ms-button-text-color) 1px;
+  color:var(--ms-button-text-color);
+  font-size:1em;
+  padding:.4em 1.4em .4em 2.2em;
+  position:relative;
+  margin-left:1em;
+}
+.answer-reset:focus,
+.answer-reset:hover {
+  background-color: var(--ms-button-text-color);
+  border-color: var(--ms-button-face-color);
+  color: var(--ms-button-face-color);
+}
+.answer-reset:before {
+  background-image:url('../media/reset.svg');
+  background-position:0 0;
+  background-repeat:no-repeat;
+  background-size:16px 16px;
+  content:" ";
+  display:block;
+  filter:invert(100%) sepia(0%) saturate(0%) hue-rotate(72deg) brightness(105%) contrast(102%);
+  height:16px;min-height:16px;
+  left:8px;
+  margin-top:-8px;
+  position:absolute;
+  top:50%;
+  width:16px;min-width:16px;
+}
+.answer-reset:focus:before,
+.answer-reset:hover:before {
+  filter:invert(11%) sepia(0%) saturate(412%) hue-rotate(174deg) brightness(85%) contrast(73%);
+}
+.rllb-list {
+  align-items:center;
+  display:flex;
+  gap:1em;
+  list-style-type:none;
+  margin:1em 0 0;
+  padding:0;
+}
+.comment-mode .rllb-list {
+	gap: 0;
+}
+.rllb-list li {
+  display:flex;
+  gap:.05em;
+  margin:0;
+  padding:0;
+}
+.markDiv .rllb-list label,
+#item-tools label {
+  align-items:flex-start;
+  display:flex;
+  gap:.25em;
+  padding:.5em;
+  width:fit-content;
+}
+.markDiv .rllb-list label:focus-within,
+#item-tools label:focus-within {
+  background-color: var(--ms-window-color);
+  outline:dashed var(--ms-window-text-color) 1px;
+}
+.markDiv .rllb-list label:hover,
+#item-tools label:hover {
+  color:var(--ms-hotlight-color);
+  cursor:pointer;
+}
+.ITSMCOptionUncheckedImg, .ITSMCOptionCheckedImg { display: none !important; }
+input.ITSMCOptionMarker[type="checkbox"],
+input.ITSMCOptionMarkerOn[type="checkbox"],
+.markDiv .rllb-list input[type="checkbox"],
+#item-tools label input {
+  -webkit-appearance:none;appearance:none;
+  background-color: var(--ms-window-color);
+  border:solid 2px var(--ms-light-border);
+  height:20px !important;min-height:20px !important;
+  margin-right:8px;
+  position:relative;
+  position:relative;
+  top:-1px;
+  width:20px !important;min-width:20px !important;
+}
+input.ITSMCOptionMarker[type="checkbox"],
+input.ITSMCOptionMarkerOn[type="checkbox"] { 
+	border-radius: 0;
+	clip: auto !important;
+	position: static !important;
+}
+input.ITSMCOptionMarker[type="checkbox"]:checked,
+input.ITSMCOptionMarkerOn[type="checkbox"]:checked,
+#item-tools label input[type="checkbox"]:checked,
+.markDiv .rllb-list label input[type="checkbox"]:checked {
+  background: var(--ms-window-color);
+  border-color:var(--ms-hotlight-color);
+}
+input.ITSMCOptionMarker[type="checkbox"]:checked:after,
+input.ITSMCOptionMarkerOn[type="checkbox"]:checked:after,
+#item-tools label input[type="checkbox"]:checked::after,
+.markDiv .rllb-list label input[type="checkbox"]:checked::after {
+  background-image:url('../media/cb-check.svg');
+  background-color:var(--ms-hotlight-color);
+  background-position:1px 1px;
+  background-repeat:no-repeat;
+  background-size:14px 14px;
+  content:" ";
+  height:18px;min-height:18px;
+  left:0px;top:0px;
+  position:absolute;
+  width:18px;min-width:18px;
+}
+.markDiv .rllb-list label > input:focus,
+#item-tools label > input:focus {outline:none;}
+.mark-label, .markcomment-label {
+	display: none;
+}
+#item-tools label#tools-img-toggle-lbl {
+	display: none;
+}
+.wa-allow-img-filter #item-tools label#tools-img-toggle-lbl {
+	display: flex;
+}
+.ITSBuildListBody .shell.its-item-table,
+.ITSBuildListBody .shellFocus.its-item-table {
+	padding-bottom: 6em;
+}
+.ui-resizer .ITSBuildListBody .shell.its-item-table,
+.ui-resizer .ITSBuildListBody .shellFocus.its-item-table {
+	padding-bottom: 8em;
+}
+.ITSBuildListBody .item-tools {
+	position: absolute;
+	bottom: 0px;
+}
+body.ITSDisplay #itdCSQuestionText { visibility: hidden; }
+.ITSMCOptionACCLabel {
+	CURSOR: pointer; WIDTH: 100%
+}
+.ReviewRow {
+	
+}
+.ITSMCOptionLabelText .itdhilite, 
+.ITSMCOptionLabelTextOn .itdhilite, 
+.ITSMCOptionLabelSeparator .itdhilite, 
+.ITSMCOptionLabelSeparatorOn .itdhilite, 
+.ITSMCOptionText .itdhilite, 
+.ITSMCOptionTextOn .itdhilite{
+	background-color: var(--ms-window-color);
+}
+.itdtablive .itdtabtab h2.its-item-visually-hidden,
+.itdtablive .itdtabtab h3.its-item-visually-hidden {
+	display: block;
+}
+html.dark-mode .itdtabnav li,
+html.yellow-on-black .itdtabnav li {
+	background-color: var(--ms-hotlight-color);
+	color: var(--ms-window-color);
+}
+html.dark-mode .itdtabnav li.itdtabactive,
+html.yellow-on-black .itdtabnav li.itdtabactive {
+	background-color: var(--ms-window-color);
+	color: var(--ms-hotlight-color);
+}
+html.dark-mode ul.itdtabnav li a:link,
+html.yellow-on-black ul.itdtabnav li a:link {
+	color: var(--ms-window-color);
+}
+html.dark-mode ul.itdtabnav li.itdtabactive a,
+html.yellow-on-black ul.itdtabnav li.itdtabactive a,
+ul.itdtabnav li.itdtabactive a {
+	background-color: var(--ms-window-color);
+	color: var(--ms-window-text-color);
+	border-bottom: 0px;
+}
+html.dark-mode ul.itdtabnav li.itdtabactive a:hover,
+html.yellow-on-black ul.itdtabnav li.itdtabactive a:hover,
+ul.itdtabnav li.itdtabactive a:hover,
+html.dark-mode ul.itdtabnav li.itdtabactive a:focus,
+html.yellow-on-black ul.itdtabnav li.itdtabactive a:focus,
+ul.itdtabnav li.itdtabactive a:focus {
+    color: var(--ms-window-text-color);
+    background: transparent;
+    border-bottom: 0;
+}
+html.yellow-on-black ul.itdtabnav li a:hover,
+html.yellow-on-black ul.itdtabnav li a:focus,
+html.dark-mode ul.itdtabnav li a:hover,
+html.dark-mode ul.itdtabnav li a:focus{
+	color: var(--ms-window-color);
+    background: var(--ms-hotlight-color);
+}
+.ITSDisplay:lang(ar) {	TEXT-ALIGN: right;}
+.ITSStem:lang(ar) {
+	WIDTH: 89.4%; 
+	VERTICAL-ALIGN: top; 
+	PADDING-BOTTOM: 0.3125rem; 
+	PADDING-TOP: 0.3125rem; 
+	PADDING-RIGHT: 0px; 
+	MARGIN-RIGHT: 3.75rem;; 
+	MARGIN-TOP: 1.875rem; 
+	PADDING-LEFT: 0.3125rem; 
+	MARGIN-LEFT: 0%; 
+	margin-bottom:1rem;
+}
+.ITSMCOptionLabelText:lang(ar),.ITSMCOptionLabelTextOn:lang(ar)  {
+	TEXT-ALIGN: right;
+}
+.ITSMCOptionLabelSeparator:lang(ar), .ITSMCOptionLabelSeparatorOn:lang(ar){}
+.ITSMCOptionTextCell:lang(ar),.ITSMCOptionTextCellOn:lang(ar) {}
+.ITSMCOptionTable:lang(ar), .ITSMCOptionTableOn:lang(ar) {}
+.ITSMCOptionTable:lang(ar):last-of-type, .ITSMCOptionTableOn:lang(ar):last-of-type {
+	margin-bottom: 5px;
+}
+.ITSDisplay:lang(he) {
+	MARGIN: 0px auto; PADDING: 0px; BORDER: 0px;  height: 100%; text-align:right;
+}
+.ITSStem:lang(he) {
+	WIDTH: 89.4%; 
+	VERTICAL-ALIGN: top; 
+	PADDING-BOTTOM: 0.3125rem; 
+	PADDING-TOP: 0.3125rem; 
+	PADDING-RIGHT: 0px; 
+	MARGIN-RIGHT: 3.75rem;; 
+	MARGIN-TOP: 1.875rem; 
+	PADDING-LEFT: 0.3125rem; 
+	MARGIN-LEFT: 0%; 
+	margin-bottom:1rem;
+}
+.ITSMCOptionLabelText:lang(he) {
+	TEXT-ALIGN: right; 
+}
+.ITSMCOptionLabelTextOn:lang(he) {
+	TEXT-ALIGN: right;
+}
+.ITSMCOptionLabelSeparator:lang(he) {}
+.ITSMCOptionLabelSeparatorOn:lang(he) {}
+.ITSMCOptionTextCell:lang(he) {}
+.ITSMCOptionTextCellOn:lang(he) {}
+.ITSMCOptionTable:lang(he) {}
+.ITSMCOptionTableOn:lang(he) {}
+body.ITSDisplay #itdCSQuestionText:lang(he) { visibility: hidden; }
+.ITSDisplay .ITSAccessibilityDiv:lang(he) { WIDTH: 100%; height:100%; margin: 0px; padding:0px; border:0px; overflow-y: auto;}
+.ITSAccessibilityDiv:focus,
+.ITSStem:focus,
+.ITSDisplay:focus> {
+    outline: 1px solid grey
+}
+.ITSMCOptionMarker:focus~img.ITSMCOptionUncheckedImg {}
+.ITSMCOptionMarkerOn:focus~img.ITSMCOptionCheckedImg {}
+.itdaccordioncontent .ITSStem{ margin: 0px;padding: 10px 5px 10px 5px; width: 100%;}
+.itdaccordioncontent .ITSStem .ITSStemText {padding-bottom:7px;margin-top:5px}
+.lab-markcomplete-label,
+.lab-markcomment-label,
+.lab-mark-label {
+	font-size: 16px;
+}
+html.yellow-on-black .splitter-bar-horizontal {
+	background-image: url('../media/Splitter-Horizontal-Rest-Black.gif');
+	background-color: var(--ms-window-color);
+}
+html.yellow-on-black .splitter-bar-horizontal:hover,
+html.yellow-on-black .splitter-bar-horizontal.splitter-state-highlight{ 
+	background-image: url('../media/Splitter-Horizontal-Hover-Black.gif');
+	background-color: var(--ms-window-color);
+}
+html.dark-mode .splitter-bar-horizontal:hover,
+html.dark-mode .splitter-bar-horizontal.splitter-state-highlight {
+	background-image: url('../media/Splitter-Horizontal-Hover-Gray.gif');
+	background-color: var(--ms-window-color);
+}
+html.yellow-on-black .splitter-bar-vertical {
+	background-image: url('../media/Splitter-Vertical-Rest-Black.gif');
+	background-color: var(--ms-window-color);
+}
+html.dark-mode .splitter-bar-vertical {
+	background-image: url('../media/Splitter-Vertical-Rest-Gray.gif');
+	background-color: var(--ms-window-color);
+}
+html.yellow-on-black .splitter-bar-vertical:hover,
+html.yellow-on-black .splitter-bar-vertical:focus,
+html.yellow-on-black .splitter-bar-vertical.splitter-state-highlight { 
+	background-image: url('../media/Splitter-Vertical-Hover-Black.gif');
+	background-color: var(--ms-window-color);
+}
+html.dark-mode .splitter-bar-vertical:hover,
+html.dark-mode .splitter-bar-vertical:focus,
+html.dark-mode .splitter-bar-vertical.splitter-state-highlight {
+	background-image: url('../media/Splitter-Vertical-Hover-Gray.gif');
+	background-color: var(--ms-window-color);
+}
+@media (max-width: 720px) {
+    
+    body,
+    .ITSDisplay {
+    	padding: .5rem;
+    }
+    
+	.ITSStem, .its-item-table.ITSStem {
+		margin-left: 0;
+		width: 100%;
+	}
+	.its-item-table.ITSMCOptionTableOn, .its-item-table.ITSMCOptionTable {
+		width: 100%;
+		margin: 0;
+	}
+}
+.ITSStemText table td { border: 1px solid #000 !important; }
+.its-item-td.ITSMCOptionRandomLabelCell {
+    background: var(--ms-window-text-color);
+    color: var(--ms-window-color);
+    padding: 0px 5px;
+    position: relative;
+    right: 5px;
+}
+.shell.its-item-table,
+.shellFocus.its-item-table {
+	border:	solid 1px var(--ms-item-outline-color);
+	padding: 2em 2em 0 2em;
+}
+.itdaccordioncontent .shell.its-item-table,
+.itdaccordioncontent .shellFocus.its-item-table {
+	border: 0;
+	padding: 0 0 5px 5px;
+}
+.ITSCSQuestion .shell.its-item-table,
+.ITSCSQuestion .shellFocus.its-item-table,
+.case-study .shell.its-item-table,
+.case-study .shellFocus.its-item-table{
+	border: 0;
+	padding: 0;
+}
+.ITSMultipleChoice .shell.its-item-table,
+.ITSMultipleChoice .shellFocus.its-item-table {
+	overflow-x: auto;
+}
+.ITSStem, .its-item-table.ITSStem {
+	width: auto;
+	padding: 0;
+	margin: 0;
+	padding-bottom: 1em;
+}
+.its-item-table.ITSMCOptionTableOn, 
+.its-item-table.ITSMCOptionTable {
+	width: auto;
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+.ITSMCOptionTable .its-item-tr,
+.ITSMCOptionTableOn .its-item-tr {
+	display: flex;
+	align-items: flex-start;
+	gap: .25em;
+	padding: .5em;
+	width: fit-content;
+}
+.ITSMCOptionTable .its-item-tr:focus-within,
+.ITSMCOptionTableOn .its-item-tr:focus-within {
+	background-color:var(--ms-window-color); 
+	outline:dashed var(--ms-window-text-color) 1px;
+}
+.ITSMCOptionTable .its-item-tr:hover,
+.ITSMCOptionTableOn .its-item-tr:hover {
+	color:var(--ms-hotlight-color);
+	cursor:pointer;
+}
+.ITSMCOptionTableOn .its-item-tr > .ITSMCOptionACCLabel, 
+.ITSMCOptionTable .its-item-tr > .ITSMCOptionACCLabel {
+	width: fit-content;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+.wa-no-imgs input.ITSOptionBox,
+.wa-img-filter input.ITSOptionBox,
+input.ITSMCOptionMarker,
+input.ITSMCOptionMarkerOn {
+	border-radius: 99em;
+	-webkit-appearance:none;appearance:none;
+  	background-color: var(--ms-window-color);
+ 	border:solid 2px var(--ms-light-border);
+  	height:20px !important;min-height:20px !important;
+ 	margin-right:8px;
+	position:relative;
+	top:-1px;
+	width:20px !important;min-width:20px !important;
+}
+.wa-no-imgs input.ITSOptionBox:checked,
+.wa-img-filter input.ITSOptionBox:checked,
+.ITSMCOptionMarkerCell input[type="radio"]:checked,
+.ITSMCOptionMarkerCell input[type="checkbox"]:checked {
+  background:var(--ms-window-color);
+  border-color:var(--ms-hotlight-color);
+}
+.wa-no-imgs input.ITSOptionBox:checked::after,
+.wa-img-filter input.ITSOptionBox:checked::after,
+.ITSMCOptionMarkerCell input[type="radio"]:checked::after {
+  background-color:var(--ms-hotlight-color);
+  border-radius:99em;
+  content:" ";
+  height:100%;
+  left:0;
+  outline-offset:-3px;
+  outline:solid var(--ms-window-color) 3px;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+.wa-no-imgs input.ITSOptionBox:focus,
+.wa-img-filter input.ITSOptionBox:focus,
+.ITSMCOptionMarkerCell > input:focus {
+	outline:none;
+}
+.ITSMCOptionLabelTextCell {
+	font-weight: 700;
+}
+.ITSMCOptionLabelSeparatorCell{
+	font-weight: 700;
+	padding-right: .5em;
+}
+body:lang(ar) .ITSMCOptionLabelSeparatorCell,
+body:lang(he) .ITSMCOptionLabelSeparatorCell {
+	padding-right: 0;
+	padding-left: .5em;
+}
+.its-item-td.ITSMCOptionTextCell, 
+.its-item-td.ITSMCOptionTextCellOn {
+	width: auto;
+	outline: 0;
+	margin: 0;
+}
+.ITSMCOptionText, .ITSMCOptionTextOn {
+	padding: 0;
+}
+html.yellow-on-black .filter-msg {
+	background-color: var(--ms-window-color);
+	color: var(--ms-window-text-color);
+}
+html.ui-resizer .ITSHotAreaBody #ITD-ITEM .its-item-table,
+html.ui-resizer .ITSActiveScreenBody #ITD-ITEM .its-item-table,
+html.ui-resizer .ITSDragDropBody #ITD-ITEM .its-item-table,
+html.ui-resizer .ITSBuildListBody #ITD-ITEM .its-item-table {
+	height: auto;
+}
+@media screen and (max-width: 320px){
+	.rllb-list {
+		flex-wrap: wrap;
+	}
+}
+.ITSBuildListBody a[name="Item"] + section .shell.its-item-table, 
+.ITSBuildListBody a[name="Item"] + section .shellFocus.its-item-table {
+	padding-bottom: 0;
+}
+@media (forced-colors: active){
+	:root {
+		--scrUp: url('../media/scrl-up-white.svg');
+		--scrDwn: url('../media/scrl-dwn-white.svg');
+		--scrRt: url('../media/scrl-right-white.svg');
+		--scrLt: url('../media/scrl-left-white.svg');
+	}
+
+	
+	::-webkit-scrollbar {
+	  width:16px;
+	}
+
+	
+	::-webkit-scrollbar-track {
+		background: none;
+	  	background-color:canvas;
+	  	border-color: buttontext;
+	}
+	
+	::-webkit-scrollbar-track:vertical{
+		background-image: none;
+	}
+	::-webkit-scrollbar-track:horizontal {
+		background-image: none;
+	}
+	
+	::-webkit-scrollbar-button {
+		display: block;
+		background-repeat: no-repeat;
+		background-size: 12px 12px;
+		background-position: center;
+		background-color: canvas;
+	}
+	
+	
+	::-webkit-scrollbar-button:vertical:start:increment {
+	    display: none;
+	}
+	
+	::-webkit-scrollbar-button:vertical:start:decrement {
+	    background-image:  var(--scrUp);
+	    border-width: 0 0 0 1px;
+	    border-color: canvastext;
+	    border-style: solid;
+	}
+	
+	::-webkit-scrollbar-button:vertical:end:increment {
+	    background-image:  var(--scrDwn);
+	    border-width: 0 0 0 1px;
+	    border-color: canvastext;
+	    border-style: solid;
+	}
+	
+	::-webkit-scrollbar-button:vertical:end:decrement {
+	    display: none;
+	}
+	
+	
+	::-webkit-scrollbar-button:horizontal:start:increment {
+	    background-image:  var(--scrLt);
+	    border-width: 1px 0 0 0;
+	    border-color: canvastext;
+	    border-style: solid;
+	}
+	
+	::-webkit-scrollbar-button:horizontal:start:decrement {
+	    display: none;
+	}
+	
+	::-webkit-scrollbar-button:horizontal:end:increment {
+	    display: none;
+	}
+	
+	::-webkit-scrollbar-button:horizontal:end:decrement {
+	    background-image:  var(--scrRt);
+	    border-width: 1px 0 0 0;
+	    border-color: canvastext;
+	    border-style: solid;
+	}
+	
+	
+	::-webkit-scrollbar-thumb {
+	  background: buttontext;
+	}
+	
+	
+	::-webkit-scrollbar-thumb:hover {
+	  background: highlight; 
+	}
+	
+	::-webkit-scrollbar-corner {
+		background-color: canvas;
+	}
+	
+	.body-review ::-webkit-scrollbar-track  {
+	  border-right-color: canvastext;
+	  border-left-color: canvastext;
+	}
+	
+	.wa-no-imgs input.ITSOptionBox:checked::after, 
+	.wa-img-filter input.ITSOptionBox:checked::after, 
+	.ITSMCOptionMarkerCell input[type="radio"]:checked::after {
+		background-color: highlight;
+		outline-color: canvas;
+		border-color: highlight;
+	}
+	.wa-no-imgs input.ITSOptionBox, 
+	.wa-img-filter input.ITSOptionBox, 
+	input.ITSMCOptionMarker {
+		border-color: hilighttext;
+	}
+	input.ITSMCOptionMarkerOn {
+		border-color: highlight;
+	}
+	input.ITSMCOptionMarker[type="checkbox"]:checked:after, 
+	input.ITSMCOptionMarkerOn[type="checkbox"]:checked:after, 
+	#item-tools label input[type="checkbox"]:checked::after, 
+	.markDiv .rllb-list label input[type="checkbox"]:checked::after {
+		background-color: highlight;
+	}
+	
+	input.ITSMCOptionMarker[type="checkbox"]:checked, 
+	input.ITSMCOptionMarkerOn[type="checkbox"]:checked, 
+	#item-tools label input[type="checkbox"]:checked, 
+	.markDiv .rllb-list label input[type="checkbox"]:checked {
+		border-color: highlight;
+	}
+	
+	input.ITSMCOptionMarker[type="checkbox"], 
+	input.ITSMCOptionMarkerOn[type="checkbox"], 
+	.markDiv .rllb-list input[type="checkbox"], 
+	#item-tools label input {
+		border-color: highlighttext;
+	}
+	
+}
+@media (forced-colors: active) and (prefers-color-scheme: dark){
+	.answer-reset:before,
+	.answer-reset:focus:before, 
+	.answer-reset:hover:before {
+		filter: invert(1);
+	}
+}
+@media (forced-colors: active) and (prefers-color-scheme: light){
+	.answer-reset:before,
+	.answer-reset:focus:before, 
+	.answer-reset:hover:before {
+		filter: none;							
+	}
+}
+html.default body.solutions-mode .correctOption.ITSMCOptionTableOn,
+html.default body.solutions-mode .correctOption.ITSMCOptionTable.showSol{background-color: #f1faf1;outline: 3px solid #0c5e0c;}
+body.solutions-mode .correctOption.ITSMCOptionTableOn,
+body.solutions-mode .correctOption.ITSMCOptionTable.showSol{
+    
+    border-radius: 15px;}
+html.default body.solutions-mode .correctOption.ITSMCOptionTableOn .its-item-tr:focus-within,
+html.default body.solutions-mode .correctOption.ITSMCOptionTable.showSol .its-item-tr:focus-within{background-color: #f1faf1;outline:none}
+html.default body.solutions-mode .correctOption .ITSMCOptionTextOn{background-color: #f1faf1 !important;}
+html.default body.solutions-mode .correctOption .ITSMCOptionText{background-color: #f1faf1 !important;}
+html.default body.solutions-mode .ITSMCOptionTableOn:not(.correctOption){background-color: #fdf6f6;
+    outline: 3px solid #9f282b;}
+body.solutions-mode .ITSMCOptionTableOn:not(.correctOption){
+    border-radius: 15px;}
+html.default body.solutions-mode .ITSMCOptionTableOn:not(.correctOption) .its-item-tr:focus-within{background-color:#fdf6f6;outline:none}
+html.default .body.solutions-mode .ITSMCOptionTableOn:not(.correctOption) .its-item-tr:focus-within, 
+html.default .body.solutions-mode .ITSMCOptionTable:not(.correctOption) .its-item-tr:focus-within{background-color: #fdf6f6;outline:none}
+html.practiceAssessments .its-item-table.ITSMCOptionTableOn, 
+html.practiceAssessments .its-item-table.ITSMCOptionTable{ margin: 2em 0 2em 0;}
+html.practiceAssessments #item-tools { display: inline-block;}
+html.practiceAssessments .answer-reset{ display: inline-block !important;}
+html.practiceAssessments.commentMode .answer-reset,
+html.practiceAssessments.commentMode .answer-check{display:none !Important}
