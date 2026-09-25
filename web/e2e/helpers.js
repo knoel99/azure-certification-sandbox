@@ -111,6 +111,6 @@ export async function runExam(page, lang) {
     const max = await meters.nth(index).getAttribute("max");
     await expect(meters.nth(index)).toHaveAttribute("value", max);
   }
-  await page.locator('[data-action="home-quiet"]').click();
+  await page.locator("#Next").click();
   await expect(page.locator('[data-action="open"]')).toBeVisible();
 }

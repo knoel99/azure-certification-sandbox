@@ -243,6 +243,35 @@ html.device-big.tb-menu-sml #ToolBar.tb-menu [aria-expanded="true"] + div button
   .item-row .case-pane { width: 100%; max-height: 38vh; border-right: 0; border-bottom: 1px solid var(--ms-item-outline-color, #d4d4d4); }
   .eframeWrapper .drag, .eframeWrapper .build { grid-template-columns: 1fr; }
   .device-big #ControlPanelFrameID { width: 50px; min-width: 50px; }
+  html.device-big.tb-menu-big #ControlPanelFrameID.toolbar-container {
+    flex: 0 0 50px;
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+  }
+  html.device-big.tb-menu-big #ToolBar.tb-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    z-index: 40;
+    max-height: 45vh;
+    overflow: auto;
+    background: var(--ms-tb-gray);
+    border-top: 2px solid var(--ms-tb-gray-border);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, .2);
+  }
+  html.device-big.tb-menu-big #MenuToggle .mt-text {
+    border: 0 !important;
+    clip: rect(0, 0, 0, 0) !important;
+    height: 1px !important;
+    width: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+  }
 }
 
 #alertContainer.modal-back {

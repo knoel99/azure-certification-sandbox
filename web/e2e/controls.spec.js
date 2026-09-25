@@ -93,7 +93,7 @@ test("tous les contrôles rendus", async ({ page }) => {
   await expect(page.locator("html")).not.toHaveClass(/dark-mode|yellow-on-black/);
 
   await page.locator('[data-action="open"]').click();
-  await page.locator('[data-action="home-quiet"]').click();
+  await page.locator("#Back").click();
   await expect(page.locator('[data-action="open"]')).toBeVisible();
   await page.locator('[data-action="open"]').click();
   await page.locator('[data-action="to-ready"]').click();
