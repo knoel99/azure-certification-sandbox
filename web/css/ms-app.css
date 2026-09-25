@@ -1,0 +1,280 @@
+#app { height: 100%; }
+[hidden] { display: none !important; }
+
+.eframeWrapper label.ITSMCOptionACCLabel { padding: 0; width: auto; }
+.item-row { display: flex; align-items: stretch; min-height: 100%; }
+.item-row .case-pane {
+  width: 260px;
+  flex: none;
+  overflow: auto;
+  background: var(--ms-tb-gray);
+  border-right: 1px solid var(--ms-item-outline-color, #d4d4d4);
+  padding: 12px 14px;
+}
+.item-row #ITD-ITEM { flex: 1; min-width: 0; }
+.case-pane h2 { margin: 12px 0 6px; font-size: 1rem; }
+.case-pane .ghost {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 2px 0;
+  padding: 6px 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: inherit;
+}
+.case-pane .ghost[aria-current="true"] { border-color: var(--ms-hotlight-color); background: var(--ms-window-color); }
+
+.eframeWrapper .drag, .eframeWrapper .build { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 1rem; }
+.eframeWrapper .src, .eframeWrapper .slot, .eframeWrapper .target, .eframeWrapper .hot, .eframeWrapper .window {
+  border: 1px solid var(--ms-item-outline-color, #d4d4d4);
+  padding: 8px 10px;
+  margin: 6px 0;
+  background: var(--ms-window-color);
+  color: inherit;
+}
+.eframeWrapper .tabs { display: flex; gap: 0; margin: 0 0 12px; }
+.eframeWrapper .tabs button {
+  background: var(--ms-tb-gray);
+  border: 1px solid var(--ms-item-outline-color, #d4d4d4);
+  color: inherit;
+  padding: 8px 12px;
+}
+.eframeWrapper .tabs button[aria-selected="true"] { background: var(--ms-window-color); border-bottom-color: var(--ms-window-color); font-weight: 650; }
+.eframeWrapper table.yn, .eframeWrapper .ITSDisplay table { width: 100%; border-collapse: collapse; }
+.eframeWrapper table.yn td, .eframeWrapper .ITSDisplay td, .eframeWrapper .ITSDisplay th { border-bottom: 1px solid var(--ms-item-outline-color, #d4d4d4); padding: 8px; vertical-align: top; text-align: left; }
+.review-grid .revdesc button {
+  background: none;
+  border: 0;
+  color: var(--ms-hotlight-color);
+  text-align: left;
+  padding: 0;
+  font: inherit;
+}
+.eframeWrapper .result, .eframeWrapper .bar, .eframeWrapper .score { max-width: 58em; }
+.poster-scroll { overflow: auto; }
+.sb-calc { z-index: 1200; }
+
+html.device-big #ControlPanelFrameID.toolbar-container {
+  flex: 0 0 50px;
+  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  overflow: visible;
+  background: var(--ms-tb-gray);
+  border-right: 2px solid var(--ms-tb-gray-border);
+}
+html.device-big.tb-menu-big #ControlPanelFrameID.toolbar-container {
+  flex-basis: 340px;
+  width: 340px;
+  min-width: 340px;
+  max-width: 340px;
+}
+html.device-big .mt-burger { display: none !important; }
+html.device-big.tb-menu-big #MenuToggle {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
+  overflow: hidden;
+  padding: 0;
+}
+html.device-big.tb-menu-big .mt-textarw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+}
+html.device-big.tb-menu-big .mt-text {
+  min-width: 0;
+  padding: 0 8px 0 16px;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 50px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+html.tb-menu-sml #MenuToggle .mt-text,
+html.tb-menu-sml #ToolBar.tb-menu > button > span,
+html.tb-menu-sml #ToolBar.tb-menu > [data-inclusive-menu] > button > span {
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  height: 1px !important;
+  width: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+}
+html.tb-menu-sml #MenuToggle,
+html.tb-menu-sml #ToolBar.tb-menu > button,
+html.tb-menu-sml #ToolBar.tb-menu > [data-inclusive-menu] > button {
+  display: flex;
+  align-items: center;
+  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  height: 50px;
+  padding: 0;
+  overflow: hidden;
+  justify-content: center;
+}
+html.tb-menu-big #ToolBar.tb-menu > button,
+html.tb-menu-big #ToolBar.tb-menu > [data-inclusive-menu] > button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
+  padding: 0 28px 0 0;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+html.tb-menu-big #ToolBar.tb-menu button > span:not(.submenu-icon) {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#ToolBar.tb-menu .submenu-icon { display: none; }
+html.tb-menu-big #ToolBar.tb-menu .submenu-icon {
+  display: flex;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  margin: 0;
+  transform: translateY(-50%);
+}
+html.tb-menu-big #ToolBar.tb-menu .submenu-icon img,
+html.tb-menu-big #ToolBar.tb-menu button[aria-expanded="true"] .submenu-icon img {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  max-width: 14px;
+  min-height: 14px;
+  max-height: 14px;
+  padding: 0;
+}
+html.tb-menu-big #ToolBar.tb-menu button[aria-expanded="true"] .submenu-icon img {
+  transform: scaleY(-1);
+}
+html.tb-menu-big #ToolBar.tb-menu [data-inclusive-menu] > div[role="menu"]:not([hidden]) {
+  display: block;
+  background: var(--ms-window-color, #fff);
+  border-top: 1px solid var(--ms-tb-gray-border, #e1dfdd);
+}
+html.tb-menu-big #ToolBar.tb-menu [data-inclusive-menu] > div[role="menu"] button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: auto;
+  min-height: 40px;
+  max-height: none;
+  padding: 8px 12px;
+  overflow: visible;
+  white-space: normal;
+  text-align: left;
+}
+html.device-big .mt-arw {
+  position: relative;
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background: none;
+}
+html.device-big .mt-arw::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 18px;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+html.device-big.tb-menu-big .mt-arw::before {
+  top: 22px;
+  transform: rotate(-135deg);
+}
+#ToolBar.tb-menu button img.icon {
+  display: block;
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+html.device-big.tb-menu-sml #ToolBar.tb-menu [aria-expanded="true"] + div {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  width: 260px;
+  z-index: 30;
+  background: var(--ms-tb-gray);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, .2);
+}
+html.device-big.tb-menu-sml #ToolBar.tb-menu [aria-expanded="true"] + div button {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  padding: 8px 12px;
+  overflow: visible;
+  white-space: normal;
+}
+
+@media (max-width: 800px) {
+  .device-big article.site-container { min-width: 0; height: auto; max-height: none; }
+  .item-row { flex-direction: column; }
+  .item-row .case-pane { width: 100%; max-height: 38vh; border-right: 0; border-bottom: 1px solid var(--ms-item-outline-color, #d4d4d4); }
+  .eframeWrapper .drag, .eframeWrapper .build { grid-template-columns: 1fr; }
+  .device-big #ControlPanelFrameID { width: 50px; min-width: 50px; }
+  html.device-big.tb-menu-big #ControlPanelFrameID.toolbar-container {
+    flex: 0 0 50px;
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+  }
+  html.device-big.tb-menu-big #ToolBar.tb-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    z-index: 40;
+    max-height: 45vh;
+    overflow: auto;
+    background: var(--ms-tb-gray);
+    border-top: 2px solid var(--ms-tb-gray-border);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, .2);
+  }
+  html.device-big.tb-menu-big #MenuToggle .mt-text {
+    border: 0 !important;
+    clip: rect(0, 0, 0, 0) !important;
+    height: 1px !important;
+    width: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+  }
+}
+
+#alertContainer.modal-back {
+  display: flex;
+  position: fixed;
+}

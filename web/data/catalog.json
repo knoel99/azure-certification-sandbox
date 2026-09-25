@@ -1,0 +1,120 @@
+{
+  "updated": "July 2026",
+  "groups": [
+    {
+      "id": "cloud",
+      "titleEn": "Cloud & AI Platforms",
+      "titleFr": "Plateformes cloud et IA",
+      "columns": ["azure", "platform", "data", "analytics"]
+    },
+    {
+      "id": "ai-biz",
+      "titleEn": "AI Business Solutions",
+      "titleFr": "Solutions métier d'IA",
+      "columns": ["m365", "dynamics", "power", "apps"]
+    },
+    {
+      "id": "security",
+      "titleEn": "Security",
+      "titleFr": "Sécurité",
+      "columns": ["sec", "sec2"]
+    }
+  ],
+  "bands": [
+    {
+      "id": "fundamentals",
+      "titleEn": "Fundamentals",
+      "titleFr": "Fondamentaux",
+      "subtitleEn": "Master the basics",
+      "subtitleFr": "Maîtriser les bases"
+    },
+    {
+      "id": "role",
+      "titleEn": "Role-based",
+      "titleFr": "Par rôle",
+      "subtitleEn": "Expand your technical skill set",
+      "subtitleFr": "Élargir vos compétences techniques"
+    },
+    {
+      "id": "specialty",
+      "titleEn": "Specialty",
+      "titleFr": "Spécialité",
+      "subtitleEn": "Deepen your technical skills and manage industry solutions",
+      "subtitleFr": "Approfondir vos compétences et gérer des solutions métier"
+    },
+    {
+      "id": "business",
+      "titleEn": "Business",
+      "titleFr": "Business",
+      "subtitleEn": "Expand your AI skills for business roles",
+      "subtitleFr": "Développer vos compétences en IA pour les rôles métier"
+    }
+  ],
+  "columns": ["azure", "platform", "data", "analytics", "m365", "dynamics", "power", "apps", "sec", "sec2"],
+  "cards": [
+    {"id": "az-900", "code": "AZ-900", "column": "azure", "band": "fundamentals", "titleEn": "Azure Fundamentals", "titleFr": "Principes de base Azure", "available": true},
+    {"id": "az-104", "code": "AZ-104", "column": "azure", "band": "role", "titleEn": "Azure Administrator Associate", "titleFr": "Administrateur Azure associé"},
+    {"id": "az-305", "code": "AZ-305", "column": "azure", "band": "role", "titleEn": "Azure Solutions Architect Expert", "titleFr": "Architecte de solutions Azure expert"},
+    {"id": "az-400", "code": "AZ-400", "column": "azure", "band": "role", "titleEn": "DevOps Engineer Expert", "titleFr": "Ingénieur DevOps expert"},
+    {"id": "az-700", "code": "AZ-700", "column": "azure", "band": "role", "titleEn": "Azure Network Engineer Associate", "titleFr": "Ingénieur réseau Azure associé"},
+    {"id": "az-120", "code": "AZ-120", "column": "azure", "band": "specialty", "titleEn": "Azure for SAP Workloads Specialty", "titleFr": "Charges de travail SAP sur Azure"},
+    {"id": "az-140", "code": "AZ-140", "column": "azure", "band": "specialty", "titleEn": "Azure Virtual Desktop Specialty", "titleFr": "Azure Virtual Desktop"},
+
+    {"id": "ai-901", "code": "AI-901", "column": "platform", "band": "fundamentals", "titleEn": "Azure AI Fundamentals", "titleFr": "Principes de base de l'IA Azure"},
+    {"id": "az-802", "code": "AZ-802", "column": "platform", "band": "role", "titleEn": "Windows Server Administrator Associate", "titleFr": "Administrateur Windows Server associé", "noteEn": "AZ-800 and AZ-801 retire in September 2026 and are replaced by AZ-802.", "noteFr": "AZ-800 et AZ-801 prennent fin en septembre 2026 et sont remplacés par AZ-802."},
+    {"id": "ai-103", "code": "AI-103", "column": "platform", "band": "role", "titleEn": "Azure AI Apps and Agents Developer Associate", "titleFr": "Développeur d'applications et d'agents IA Azure", "badge": "New"},
+    {"id": "ai-200", "code": "AI-200", "column": "platform", "band": "role", "titleEn": "Azure AI Cloud Developer", "titleFr": "Développeur cloud IA Azure", "badge": "New"},
+    {"id": "ai-500", "code": "AI-500", "column": "platform", "band": "role", "titleEn": "Multi-Agent AI Solutions", "titleFr": "Solutions d'IA multi-agent"},
+    {"id": "dp-420", "code": "DP-420", "column": "platform", "band": "specialty", "titleEn": "Azure Cosmos DB Developer Specialty", "titleFr": "Développeur Azure Cosmos DB"},
+    {"id": "gh-900", "code": "GH-900", "column": "platform", "band": "specialty", "titleEn": "GitHub Foundations", "titleFr": "GitHub Foundations"},
+
+    {"id": "dp-900", "code": "DP-900", "column": "data", "band": "fundamentals", "titleEn": "Azure Data Fundamentals", "titleFr": "Principes de base des données Azure"},
+    {"id": "ai-300", "code": "AI-300", "column": "data", "band": "role", "titleEn": "Machine Learning Operations Engineer Associate", "titleFr": "Ingénieur des opérations Machine Learning associé"},
+    {"id": "dp-300", "code": "DP-300", "column": "data", "band": "role", "titleEn": "Azure Database Administrator Associate", "titleFr": "Administrateur de bases de données Azure associé"},
+    {"id": "dp-600", "code": "DP-600", "column": "data", "band": "role", "titleEn": "Fabric Analytics Engineer Associate", "titleFr": "Ingénieur analytique Fabric associé"},
+    {"id": "dp-700", "code": "DP-700", "column": "data", "band": "role", "titleEn": "Fabric Data Engineer Associate", "titleFr": "Ingénieur données Fabric associé"},
+    {"id": "gh-100", "code": "GH-100", "column": "data", "band": "specialty", "titleEn": "GitHub Administration", "titleFr": "GitHub Administration"},
+
+    {"id": "dp-750", "code": "DP-750", "column": "analytics", "band": "role", "titleEn": "Azure Databricks Data Engineer Associate", "titleFr": "Ingénieur données Azure Databricks associé"},
+    {"id": "dp-800", "code": "DP-800", "column": "analytics", "band": "role", "titleEn": "SQL AI Developer Associate", "titleFr": "Développeur SQL IA associé"},
+    {"id": "pl-300", "code": "PL-300", "column": "analytics", "band": "role", "titleEn": "Power BI Data Analyst Associate", "titleFr": "Analyste de données Power BI associé"},
+    {"id": "gh-300", "code": "GH-300", "column": "analytics", "band": "specialty", "titleEn": "GitHub Copilot", "titleFr": "GitHub Copilot"},
+    {"id": "gh-600", "code": "GH-600", "column": "analytics", "band": "specialty", "titleEn": "GitHub Agentic AI Developer", "titleFr": "GitHub Agentic AI Developer"},
+
+    {"id": "ab-900", "code": "AB-900", "column": "m365", "band": "fundamentals", "titleEn": "Microsoft 365 Copilot and Agent Administration Fundamentals", "titleFr": "Principes de base de l'administration Copilot et des agents"},
+    {"id": "md-102", "code": "MD-102", "column": "m365", "band": "role", "titleEn": "Endpoint Administrator Associate", "titleFr": "Administrateur de points de terminaison associé"},
+    {"id": "ms-102", "code": "MS-102", "column": "m365", "band": "role", "titleEn": "Administrator Expert", "titleFr": "Administrateur expert"},
+    {"id": "ms-721", "code": "MS-721", "column": "m365", "band": "role", "titleEn": "Collaboration Communications Systems Engineer Associate", "titleFr": "Ingénieur systèmes de communication de collaboration associé"},
+    {"id": "ms-700", "code": "MS-700", "column": "m365", "band": "role", "titleEn": "Teams Administrator Associate", "titleFr": "Administrateur Teams associé"},
+    {"id": "mb-230", "code": "MB-230", "column": "m365", "band": "role", "titleEn": "Dynamics 365 Customer Service Functional Consultant Associate", "titleFr": "Consultant fonctionnel Service client Dynamics 365"},
+    {"id": "ab-730", "code": "AB-730", "column": "m365", "band": "business", "titleEn": "AI Business Professional", "titleFr": "Professionnel métier de l'IA"},
+
+    {"id": "pl-900", "code": "PL-900", "column": "dynamics", "band": "fundamentals", "titleEn": "Power Platform Fundamentals", "titleFr": "Principes de base de Power Platform"},
+    {"id": "mb-310", "code": "MB-310", "column": "dynamics", "band": "role", "titleEn": "Dynamics 365 Finance Functional Consultant Associate", "titleFr": "Consultant fonctionnel Finance Dynamics 365"},
+    {"id": "mb-330", "code": "MB-330", "column": "dynamics", "band": "role", "titleEn": "Dynamics 365 Supply Chain Management Functional Consultant Associate", "titleFr": "Consultant fonctionnel Supply Chain Management Dynamics 365"},
+    {"id": "mb-500", "code": "MB-500", "column": "dynamics", "band": "role", "titleEn": "Dynamics 365 Finance and Operations Apps Developer Associate", "titleFr": "Développeur d'applications Finance and Operations Dynamics 365"},
+    {"id": "mb-800", "code": "MB-800", "column": "dynamics", "band": "role", "titleEn": "Dynamics 365 Business Central Functional Consultant Associate", "titleFr": "Consultant fonctionnel Business Central Dynamics 365"},
+    {"id": "mb-820", "code": "MB-820", "column": "dynamics", "band": "role", "titleEn": "Dynamics 365 Business Central Developer Associate", "titleFr": "Développeur Business Central Dynamics 365"},
+    {"id": "ab-731", "code": "AB-731", "column": "dynamics", "band": "business", "titleEn": "AI Transformation Leader", "titleFr": "Responsable de la transformation IA"},
+
+    {"id": "pl-200", "code": "PL-200", "column": "power", "band": "role", "titleEn": "Power Platform Functional Consultant Associate", "titleFr": "Consultant fonctionnel Power Platform associé"},
+    {"id": "pl-400", "code": "PL-400", "column": "power", "band": "role", "titleEn": "Power Platform Developer Associate", "titleFr": "Développeur Power Platform associé"},
+    {"id": "ab-100", "code": "AB-100", "column": "power", "band": "role", "titleEn": "Agentic AI Business Solutions Architect", "titleFr": "Architecte de solutions métier d'IA agentique"},
+    {"id": "ab-620", "code": "AB-620", "column": "power", "band": "role", "titleEn": "AI Agent Builder Associate", "titleFr": "Concepteur d'agents IA associé"},
+    {"id": "ab-210", "code": "AB-210", "column": "power", "band": "role", "titleEn": "Dynamics 365 Sales AI Consultant Associate", "titleFr": "Consultant IA Sales Dynamics 365"},
+
+    {"id": "ab-410", "code": "AB-410", "column": "apps", "band": "role", "titleEn": "Intelligent Applications Builder Associate", "titleFr": "Concepteur d'applications intelligentes associé"},
+    {"id": "ab-250", "code": "AB-250", "column": "apps", "band": "role", "titleEn": "Dynamics 365 Contact Center AI Engineer Associate", "titleFr": "Ingénieur IA Contact Center Dynamics 365"},
+    {"id": "ab-650", "code": "AB-650", "column": "apps", "band": "role", "titleEn": "AI Services Administrator Associate (Beta)", "titleFr": "Administrateur des services d'IA associé (bêta)"},
+
+    {"id": "sc-900", "code": "SC-900", "column": "sec", "band": "fundamentals", "titleEn": "Security, Compliance, and Identity Fundamentals", "titleFr": "Principes de base de la sécurité, de la conformité et de l'identité"},
+    {"id": "az-500", "code": "AZ-500", "column": "sec", "band": "role", "titleEn": "Azure Security Engineer Associate", "titleFr": "Ingénieur sécurité Azure associé"},
+    {"id": "sc-100", "code": "SC-100", "column": "sec", "band": "role", "titleEn": "Cybersecurity Architect Expert", "titleFr": "Architecte cybersécurité expert"},
+    {"id": "sc-200", "code": "SC-200", "column": "sec", "band": "role", "titleEn": "Security Operations Analyst Associate", "titleFr": "Analyste des opérations de sécurité associé"},
+    {"id": "sc-300", "code": "SC-300", "column": "sec", "band": "role", "titleEn": "Identity and Access Administrator Associate", "titleFr": "Administrateur des identités et des accès associé"},
+    {"id": "gh-500", "code": "GH-500", "column": "sec", "band": "specialty", "titleEn": "GitHub Advanced Security", "titleFr": "GitHub Advanced Security"},
+
+    {"id": "sc-401", "code": "SC-401", "column": "sec2", "band": "role", "titleEn": "Information Security Administrator Associate", "titleFr": "Administrateur de la sécurité des informations associé", "badge": "New"},
+    {"id": "sc-500", "code": "SC-500", "column": "sec2", "band": "role", "titleEn": "Cloud and AI Security Engineer Associate", "titleFr": "Ingénieur sécurité cloud et IA associé", "badge": "New"}
+  ]
+}

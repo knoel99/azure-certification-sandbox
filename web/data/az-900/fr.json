@@ -1,0 +1,1528 @@
+{
+  "examId": "AZ-900",
+  "title": "Microsoft Azure Fundamentals",
+  "durationSec": 2700,
+  "domains": [
+    {
+      "id": "cloud",
+      "label": "Décrire les concepts du cloud"
+    },
+    {
+      "id": "architecture",
+      "label": "Décrire l'architecture et les services Azure"
+    },
+    {
+      "id": "management",
+      "label": "Décrire la gestion et la gouvernance Azure"
+    }
+  ],
+  "sections": [
+    {
+      "id": "independent",
+      "title": "Questions indépendantes",
+      "questions": [
+        {
+          "id": "q01",
+          "type": "single",
+          "domain": "cloud",
+          "objective": "Définir le cloud computing",
+          "stem": "Une équipe décrit Azure comme un moyen d'obtenir des services informatiques quand elle en a besoin et de payer ce qu'elle consomme. Quel énoncé correspond à cette description ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Fourniture à la demande de services informatiques via Internet, payés à la consommation."
+            },
+            {
+              "id": "B",
+              "text": "Un seul serveur physique dans les locaux, acheté avant de pouvoir utiliser la moindre capacité."
+            },
+            {
+              "id": "C",
+              "text": "Un contrat matériel de cinq ans, payable en totalité avant la livraison de la première machine."
+            },
+            {
+              "id": "D",
+              "text": "Un équipement qui ne fait que router le trafic à l'intérieur d'un bâtiment."
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Le cloud computing est la fourniture à la demande de services informatiques via Internet, notamment le calcul, le stockage et le réseau, avec un paiement à l'usage. Acheter un serveur à l'avance correspond au centre de données traditionnel.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/3-what-cloud-compute/"
+        },
+        {
+          "id": "q02",
+          "type": "single",
+          "domain": "cloud",
+          "objective": "Décrire le modèle de responsabilité partagée",
+          "stem": "Dans le modèle de responsabilité partagée, quel élément reste à la charge du client en IaaS, PaaS et SaaS ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Les hôtes physiques du centre de données"
+            },
+            {
+              "id": "B",
+              "text": "Les informations et les données"
+            },
+            {
+              "id": "C",
+              "text": "Le refroidissement du centre de données"
+            },
+            {
+              "id": "D",
+              "text": "Le réseau physique du centre de données"
+            }
+          ],
+          "correct": [
+            "B"
+          ],
+          "rationale": "Les informations et les données, les appareils, ainsi que les comptes et les identités restent toujours au client. Le fournisseur possède toujours le centre de données physique, le réseau physique et les hôtes physiques. La mise à jour du système d'exploitation dépend du modèle de service.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/4-describe-shared-responsibility-model/"
+        },
+        {
+          "id": "q03",
+          "type": "multi",
+          "domain": "cloud",
+          "select": 2,
+          "objective": "Décrire le modèle de responsabilité partagée",
+          "stem": "Quelles sont les deux responsabilités qui appartiennent toujours au client, que ce soit en IaaS, PaaS ou SaaS ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Les informations et les données"
+            },
+            {
+              "id": "B",
+              "text": "Les comptes et les identités"
+            },
+            {
+              "id": "C",
+              "text": "Les hôtes physiques"
+            },
+            {
+              "id": "D",
+              "text": "L'alimentation électrique du centre de données"
+            },
+            {
+              "id": "E",
+              "text": "L'hyperviseur de l'hôte physique"
+            }
+          ],
+          "correct": [
+            "A",
+            "B"
+          ],
+          "rationale": "Le client conserve toujours les informations et les données, les appareils, ainsi que les comptes et les identités. Les hôtes physiques, l'alimentation et l'hyperviseur relèvent du fournisseur.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/4-describe-shared-responsibility-model/"
+        },
+        {
+          "id": "q04",
+          "type": "drag",
+          "domain": "cloud",
+          "objective": "Définir les modèles de cloud",
+          "stem": "Associez chaque description au modèle de cloud qu'elle illustre.",
+          "sources": [
+            {
+              "id": "public",
+              "text": "Cloud public"
+            },
+            {
+              "id": "private",
+              "text": "Cloud privé"
+            },
+            {
+              "id": "hybrid",
+              "text": "Cloud hybride"
+            },
+            {
+              "id": "multi",
+              "text": "Multicloud"
+            }
+          ],
+          "targets": [
+            {
+              "id": "t1",
+              "label": "Un commerçant exécute son site public uniquement sur des services Azure partagés."
+            },
+            {
+              "id": "t2",
+              "label": "Une banque exécute ses charges sur du matériel qui lui est dédié, dans son propre centre de données."
+            },
+            {
+              "id": "t3",
+              "label": "Une application s'exécute dans Azure et lit une base qui reste dans le centre de données de l'entreprise."
+            }
+          ],
+          "correct": {
+            "t1": "public",
+            "t2": "private",
+            "t3": "hybrid"
+          },
+          "rationale": "Le cloud public est une infrastructure partagée, détenue par le fournisseur. Le cloud privé est dédié à une organisation. Le cloud hybride relie des services de cloud public à un environnement privé, par exemple une application Azure qui lit une base locale. Le multicloud désigne l'usage de plusieurs clouds publics, ce que ces descriptions n'exigent pas.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models/"
+        },
+        {
+          "id": "q05",
+          "type": "single",
+          "domain": "cloud",
+          "objective": "Décrire le modèle de consommation",
+          "stem": "Une entreprise veut cesser d'acheter des serveurs et payer chaque mois uniquement la capacité qu'elle utilise. De quel avantage du cloud s'agit-il ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Un passage des dépenses d'investissement (CapEx) aux dépenses d'exploitation (OpEx)"
+            },
+            {
+              "id": "B",
+              "text": "La haute disponibilité entre zones de disponibilité"
+            },
+            {
+              "id": "C",
+              "text": "Un cloud privé que l'entreprise possède encore"
+            },
+            {
+              "id": "D",
+              "text": "La mise à l'échelle verticale d'une seule machine virtuelle"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Le modèle de consommation transforme l'achat de matériel (CapEx) en coût d'exploitation (OpEx) : on paie ce que l'on consomme. La haute disponibilité, le cloud privé et la mise à l'échelle verticale ne décrivent pas ce changement de dépense.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/6-describe-consumption-based-model/"
+        },
+        {
+          "id": "q06",
+          "type": "single",
+          "domain": "cloud",
+          "objective": "Décrire la scalabilité",
+          "stem": "Le trafic double chaque après-midi de semaine. L'équipe veut ajouter des instances de machine virtuelle pendant ces heures et les retirer le soir. De quel concept s'agit-il ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Mise à l'échelle horizontale"
+            },
+            {
+              "id": "B",
+              "text": "Mise à l'échelle verticale"
+            },
+            {
+              "id": "C",
+              "text": "Un verrou de ressource"
+            },
+            {
+              "id": "D",
+              "text": "Le niveau d'accès archive"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "La mise à l'échelle horizontale ajoute ou retire des instances. La mise à l'échelle verticale change la taille d'une ressource existante, par exemple une taille de machine virtuelle plus grande. Un verrou et le niveau archive n'ajoutent pas d'instances de calcul.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud/"
+        },
+        {
+          "id": "q07",
+          "type": "multi",
+          "domain": "cloud",
+          "select": 2,
+          "objective": "Décrire la haute disponibilité et la fiabilité",
+          "stem": "Quels sont les deux choix de conception Azure qui aident une charge de travail à survivre à une panne matérielle ou à la panne d'un centre de données entier ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Les zones de disponibilité"
+            },
+            {
+              "id": "B",
+              "text": "Les paires de régions utilisées pour la reprise d'activité"
+            },
+            {
+              "id": "C",
+              "text": "Une étiquette de ressource"
+            },
+            {
+              "id": "D",
+              "text": "Uniquement augmenter la taille d'une machine virtuelle"
+            },
+            {
+              "id": "E",
+              "text": "Une estimation du calculateur de prix"
+            }
+          ],
+          "correct": [
+            "A",
+            "B"
+          ],
+          "rationale": "Les zones de disponibilité sont des centres de données distincts dans une région : une charge peut survivre à la perte d'un centre de données. Une paire de régions sert à la reprise si une région entière est indisponible. Une machine plus grande, une étiquette ou une estimation de prix n'ajoutent pas de second domaine de défaillance.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud/"
+        },
+        {
+          "id": "q08",
+          "type": "single",
+          "domain": "cloud",
+          "objective": "Décrire la plateforme en tant que service",
+          "stem": "Une équipe veut exécuter une application web et ne veut pas corriger le système d'exploitation. Quel modèle de service convient ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "La plateforme en tant que service (PaaS), par exemple Azure App Service"
+            },
+            {
+              "id": "B",
+              "text": "L'infrastructure en tant que service (IaaS), où le client corrige le système d'exploitation invité"
+            },
+            {
+              "id": "C",
+              "text": "Une baie en colocation dont l'entreprise possède les serveurs"
+            },
+            {
+              "id": "D",
+              "text": "Un point de terminaison privé sans plateforme d'application"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "En PaaS, le fournisseur gère le runtime et le système d'exploitation. Le client gère l'application et les données. Azure App Service est une option d'hébergement PaaS. En IaaS, le client corrige encore le système invité.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service/"
+        },
+        {
+          "id": "q09",
+          "type": "multi",
+          "domain": "cloud",
+          "select": 2,
+          "objective": "Décrire l'infrastructure en tant que service",
+          "stem": "En infrastructure en tant que service (IaaS), quels sont les deux éléments que le client gère encore ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Le système d'exploitation invité"
+            },
+            {
+              "id": "B",
+              "text": "Les applications"
+            },
+            {
+              "id": "C",
+              "text": "Les hôtes physiques"
+            },
+            {
+              "id": "D",
+              "text": "L'alimentation et le refroidissement du centre de données"
+            },
+            {
+              "id": "E",
+              "text": "L'hyperviseur"
+            }
+          ],
+          "correct": [
+            "A",
+            "B"
+          ],
+          "rationale": "En IaaS, le client gère le système d'exploitation invité, l'intergiciel, les applications et les données. Le fournisseur gère l'hyperviseur, les hôtes physiques et le centre de données.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service/"
+        },
+        {
+          "id": "q10",
+          "type": "hot",
+          "domain": "cloud",
+          "select": 1,
+          "objective": "Décrire le logiciel en tant que service",
+          "stem": "Contoso veut une messagerie prête à l'emploi. Le fournisseur exécute l'application. Les utilisateurs se contentent de se connecter. Sélectionnez le modèle de service.",
+          "regions": [
+            {
+              "id": "iaas",
+              "label": "IaaS",
+              "detail": "Vous gérez le système invité et l'application."
+            },
+            {
+              "id": "paas",
+              "label": "PaaS",
+              "detail": "Vous gérez l'application. Le fournisseur gère le système d'exploitation."
+            },
+            {
+              "id": "saas",
+              "label": "SaaS",
+              "detail": "Vous utilisez le logiciel fini. Le fournisseur exécute l'application."
+            }
+          ],
+          "correct": [
+            "saas"
+          ],
+          "rationale": "Le logiciel en tant que service est un logiciel fini, exploité par le fournisseur. Une boîte aux lettres à laquelle on se connecte est du SaaS. L'IaaS et le PaaS laissent encore l'application, ou le système d'exploitation, au client.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service/"
+        },
+        {
+          "id": "q11",
+          "type": "yesno",
+          "domain": "cloud",
+          "objective": "Décrire le modèle de responsabilité partagée",
+          "stem": "Examinez le tableau des responsabilités, puis indiquez si chaque affirmation est étayée.",
+          "exhibits": [
+            {
+              "id": "resp",
+              "title": "Responsabilités",
+              "columns": [
+                "Élément",
+                "IaaS",
+                "PaaS",
+                "SaaS"
+              ],
+              "rows": [
+                [
+                  "Hôtes physiques",
+                  "Microsoft",
+                  "Microsoft",
+                  "Microsoft"
+                ],
+                [
+                  "Système d'exploitation",
+                  "Client",
+                  "Microsoft",
+                  "Microsoft"
+                ],
+                [
+                  "Informations et données",
+                  "Client",
+                  "Client",
+                  "Client"
+                ]
+              ]
+            }
+          ],
+          "statements": [
+            {
+              "id": "s1",
+              "text": "En PaaS, le client corrige le système d'exploitation invité."
+            },
+            {
+              "id": "s2",
+              "text": "Les informations et les données sont à la charge du client en IaaS, PaaS et SaaS."
+            }
+          ],
+          "correct": {
+            "s1": "no",
+            "s2": "yes"
+          },
+          "rationale": "Le tableau attribue le système d'exploitation à Microsoft en PaaS : le client ne le corrige donc pas. Les informations et les données sont à la charge du client dans les trois modèles.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/4-describe-shared-responsibility-model/"
+        },
+        {
+          "id": "q12",
+          "type": "single",
+          "domain": "architecture",
+          "objective": "Décrire les régions et les paires de régions",
+          "stem": "Qu'est-ce qu'une paire de régions Azure ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Deux régions de la même zone géographique, afin que les mises à jour de plateforme puissent être déployées dans une région à la fois et que certains services puissent se répliquer pour la reprise d'activité"
+            },
+            {
+              "id": "B",
+              "text": "Deux zones de disponibilité dans un seul centre de données"
+            },
+            {
+              "id": "C",
+              "text": "Un groupe d'administration et les abonnements qu'il contient"
+            },
+            {
+              "id": "D",
+              "text": "Une passerelle VPN associée à un circuit ExpressRoute"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Une paire de régions réunit deux régions de la même zone géographique. Microsoft met à jour une région de la paire avant l'autre, et certains services répliquent les données vers la région paire. Les zones de disponibilité sont des centres de données distincts dans une même région, pas une paire de régions.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/5-describe-azure-physical-infrastructure/"
+        },
+        {
+          "id": "q13",
+          "type": "single",
+          "domain": "architecture",
+          "objective": "Décrire les zones de disponibilité",
+          "stem": "Quel énoncé décrit une zone de disponibilité Azure ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Un emplacement physiquement distinct dans une région, avec sa propre alimentation, son propre refroidissement et son propre réseau"
+            },
+            {
+              "id": "B",
+              "text": "Une paire de régions dans deux zones géographiques différentes"
+            },
+            {
+              "id": "C",
+              "text": "Un conteneur logique pour les abonnements"
+            },
+            {
+              "id": "D",
+              "text": "Le périmètre de facturation d'un compte Azure"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Les zones de disponibilité sont des emplacements physiques distincts dans une région. Chaque zone a une alimentation, un refroidissement et un réseau indépendants. Elles sont reliées par un réseau à faible latence. Un groupe d'administration et un abonnement sont des objets de gestion, pas des centres de données.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/5-describe-azure-physical-infrastructure/"
+        },
+        {
+          "id": "q14",
+          "type": "build",
+          "domain": "architecture",
+          "select": 4,
+          "objective": "Décrire la hiérarchie des ressources",
+          "stem": "Classez les quatre périmètres du plus large au plus étroit.",
+          "choices": [
+            {
+              "id": "mg",
+              "text": "Groupe d'administration"
+            },
+            {
+              "id": "sub",
+              "text": "Abonnement"
+            },
+            {
+              "id": "rg",
+              "text": "Groupe de ressources"
+            },
+            {
+              "id": "res",
+              "text": "Ressource"
+            }
+          ],
+          "correct": [
+            "mg",
+            "sub",
+            "rg",
+            "res"
+          ],
+          "rationale": "Les groupes d'administration contiennent des abonnements. Un abonnement contient des groupes de ressources. Un groupe de ressources contient des ressources. C'est la hiérarchie de gestion, du périmètre le plus large jusqu'à une ressource.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/6-describe-azure-management-infrastructure/"
+        },
+        {
+          "id": "q15",
+          "type": "multi",
+          "domain": "architecture",
+          "select": 2,
+          "objective": "Décrire les ressources nécessaires aux machines virtuelles",
+          "stem": "Vous créez une machine virtuelle Azure. Quelles sont les deux ressources nécessaires à la machine virtuelle elle-même ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Un disque de système d'exploitation"
+            },
+            {
+              "id": "B",
+              "text": "Un réseau virtuel"
+            },
+            {
+              "id": "C",
+              "text": "Un circuit ExpressRoute"
+            },
+            {
+              "id": "D",
+              "text": "Une attribution Azure Policy"
+            },
+            {
+              "id": "E",
+              "text": "Un groupe d'administration"
+            }
+          ],
+          "correct": [
+            "A",
+            "B"
+          ],
+          "rationale": "Une machine virtuelle a besoin d'un disque de système d'exploitation et d'un réseau virtuel avec une interface réseau. ExpressRoute, une stratégie et un groupe d'administration ne sont pas nécessaires pour créer la machine virtuelle.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/2-virtual-machines/"
+        },
+        {
+          "id": "q16",
+          "type": "drag",
+          "domain": "architecture",
+          "objective": "Comparer les types de calcul",
+          "stem": "Associez chaque besoin à l'option de calcul qui lui correspond.",
+          "sources": [
+            {
+              "id": "vm",
+              "text": "Machines virtuelles Azure"
+            },
+            {
+              "id": "aci",
+              "text": "Azure Container Instances"
+            },
+            {
+              "id": "fn",
+              "text": "Azure Functions"
+            },
+            {
+              "id": "vnet",
+              "text": "Réseau virtuel"
+            }
+          ],
+          "targets": [
+            {
+              "id": "t1",
+              "label": "Migrer un serveur Windows tel quel et garder le contrôle complet du système d'exploitation."
+            },
+            {
+              "id": "t2",
+              "label": "Exécuter un conteneur sans exploiter un cluster ni une machine virtuelle."
+            },
+            {
+              "id": "t3",
+              "label": "Exécuter du code à chaque message d'une file, sans serveur à gérer."
+            }
+          ],
+          "correct": {
+            "t1": "vm",
+            "t2": "aci",
+            "t3": "fn"
+          },
+          "rationale": "Les machines virtuelles laissent le système invité sous votre contrôle, ce qu'une migration telle quelle exige. Azure Container Instances exécute un conteneur sans cluster. Azure Functions exécute du code sur un événement, par exemple un message de file, sans serveur à gérer. Un réseau virtuel est du réseau, pas un hôte de calcul.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/6-functions/"
+        },
+        {
+          "id": "q17",
+          "type": "single",
+          "domain": "architecture",
+          "objective": "Décrire ExpressRoute",
+          "stem": "Contoso a besoin d'une connexion privée entre son centre de données et Azure, qui ne passe pas par l'Internet public. Quel service fournit cette connexion ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Azure ExpressRoute"
+            },
+            {
+              "id": "B",
+              "text": "Un VPN site à site, qui chiffre le trafic sur Internet"
+            },
+            {
+              "id": "C",
+              "text": "Azure DNS"
+            },
+            {
+              "id": "D",
+              "text": "Un point de terminaison public sur un compte de stockage"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "ExpressRoute est une connexion privée via un fournisseur de connectivité. Elle ne passe pas par l'Internet public. Une passerelle VPN envoie du trafic chiffré sur Internet. Azure DNS résout des noms. Un point de terminaison public est accessible depuis Internet.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/4-expressroute/"
+        },
+        {
+          "id": "q18",
+          "type": "single",
+          "domain": "architecture",
+          "objective": "Définir les points de terminaison publics et privés",
+          "stem": "Vous voulez qu'un compte de stockage soit joint par une adresse IP privée de votre réseau virtuel, plutôt que par une adresse IP publique. Que devez-vous utiliser ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Un point de terminaison privé"
+            },
+            {
+              "id": "B",
+              "text": "Un point de terminaison public avec l'accès anonyme activé"
+            },
+            {
+              "id": "C",
+              "text": "Un niveau d'accès archive"
+            },
+            {
+              "id": "D",
+              "text": "Une étiquette de ressource"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Un point de terminaison privé attribue au service Azure une adresse IP privée de votre réseau virtuel. Le trafic reste sur le réseau privé. Un point de terminaison public utilise une adresse publique. Le niveau d'accès et une étiquette ne changent pas la façon de joindre le service.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/2-virtual-network/"
+        },
+        {
+          "id": "q19",
+          "type": "build",
+          "domain": "architecture",
+          "select": 4,
+          "objective": "Décrire la défense en profondeur",
+          "stem": "Placez les quatre couches de défense en profondeur dans la zone de réponse et classez-les de la plus externe à la plus interne.",
+          "choices": [
+            {
+              "id": "physical",
+              "text": "Sécurité physique"
+            },
+            {
+              "id": "perimeter",
+              "text": "Périmètre"
+            },
+            {
+              "id": "network",
+              "text": "Réseau"
+            },
+            {
+              "id": "data",
+              "text": "Données"
+            },
+            {
+              "id": "rg",
+              "text": "Groupe de ressources"
+            },
+            {
+              "id": "price",
+              "text": "Calculateur de prix"
+            }
+          ],
+          "correct": [
+            "physical",
+            "perimeter",
+            "network",
+            "data"
+          ],
+          "rationale": "La défense en profondeur, de l'extérieur vers l'intérieur, est : sécurité physique, identité et accès, périmètre, réseau, calcul, application, puis données. Parmi les vraies couches proposées ici, l'ordre est sécurité physique, périmètre, réseau, puis données. Un groupe de ressources et le calculateur de prix ne sont pas des couches de sécurité.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/8-describe-defense-depth/"
+        },
+        {
+          "id": "q20",
+          "type": "single",
+          "domain": "architecture",
+          "objective": "Décrire les niveaux de stockage",
+          "stem": "Des sauvegardes sont conservées pendant des années et ne sont presque jamais lues. L'équipe veut le coût de stockage le plus bas et peut attendre la réhydratation des données. Quel niveau d'accès blob convient ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Archive"
+            },
+            {
+              "id": "B",
+              "text": "Chaud"
+            },
+            {
+              "id": "C",
+              "text": "Un disque localement redondant attaché à une machine virtuelle"
+            },
+            {
+              "id": "D",
+              "text": "Stockage File d'attente"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Le niveau archive est destiné aux données rarement consultées et conservées au moins 180 jours. Il a le coût de stockage le plus bas et la latence de réhydratation la plus élevée. Le niveau chaud sert aux données souvent consultées. Les disques et les files sont d'autres services de stockage, pas des niveaux d'accès blob.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services/"
+        },
+        {
+          "id": "q21",
+          "type": "multi",
+          "domain": "architecture",
+          "select": 2,
+          "objective": "Décrire les options de redondance",
+          "stem": "Quelles sont les deux options de redondance qui conservent des copies synchrones dans la région primaire ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Stockage localement redondant (LRS)"
+            },
+            {
+              "id": "B",
+              "text": "Stockage redondant interzone (ZRS)"
+            },
+            {
+              "id": "C",
+              "text": "Stockage géo-redondant (GRS)"
+            },
+            {
+              "id": "D",
+              "text": "Stockage géo-redondant avec accès en lecture (RA-GRS)"
+            }
+          ],
+          "correct": [
+            "A",
+            "B"
+          ],
+          "rationale": "Le LRS conserve trois copies synchrones dans un centre de données de la région primaire. Le ZRS conserve des copies synchrones dans des zones de disponibilité de la région primaire. Le GRS et le RA-GRS ajoutent une copie asynchrone dans la région paire.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/3-redundancy/"
+        },
+        {
+          "id": "q22",
+          "type": "exhibit",
+          "domain": "architecture",
+          "objective": "Comparer les services Stockage Azure",
+          "stem": "Contoso va retirer un serveur de fichiers. Les utilisateurs doivent continuer à ouvrir les données comme un partage réseau SMB. Utilisez le document, puis choisissez le service de stockage.",
+          "exhibits": [
+            {
+              "id": "stores",
+              "title": "Services de stockage",
+              "columns": [
+                "Service",
+                "Conçu pour"
+              ],
+              "rows": [
+                [
+                  "Stockage Blob",
+                  "Des objets non structurés, comme des images et des sauvegardes"
+                ],
+                [
+                  "Azure Files",
+                  "Des partages de fichiers en SMB"
+                ],
+                [
+                  "Stockage File d'attente",
+                  "Des messages entre composants d'une application"
+                ],
+                [
+                  "Disques Azure",
+                  "Des disques attachés à des machines virtuelles"
+                ]
+              ]
+            }
+          ],
+          "choices": [
+            {
+              "id": "A",
+              "text": "Stockage Blob"
+            },
+            {
+              "id": "B",
+              "text": "Azure Files"
+            },
+            {
+              "id": "C",
+              "text": "Stockage File d'attente"
+            },
+            {
+              "id": "D",
+              "text": "Disques Azure"
+            }
+          ],
+          "correct": [
+            "B"
+          ],
+          "rationale": "Azure Files fournit des partages gérés que les clients ouvrent en SMB, ce qui remplace un serveur de fichiers classique. Le stockage Blob conserve des objets, les files passent des messages, et les disques Azure s'attachent à des machines virtuelles.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services/"
+        },
+        {
+          "id": "q23",
+          "type": "single",
+          "domain": "architecture",
+          "objective": "Décrire l'accès conditionnel Microsoft Entra",
+          "stem": "Contoso veut exiger l'authentification multifacteur quand un utilisateur se connecte en dehors des sites de bureau approuvés. Quelle fonctionnalité le permet ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "L'accès conditionnel Microsoft Entra"
+            },
+            {
+              "id": "B",
+              "text": "Un verrou de ressource Supprimer"
+            },
+            {
+              "id": "C",
+              "text": "Une règle Azure Policy de lieux autorisés"
+            },
+            {
+              "id": "D",
+              "text": "Une étiquette de ressource"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "L'accès conditionnel évalue des signaux comme l'utilisateur, le lieu et l'appareil, puis exige un contrôle comme l'authentification multifacteur. Un verrou et Azure Policy régissent les ressources, pas la connexion. Une étiquette ne demande rien à l'utilisateur.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/5-conditional-access/"
+        },
+        {
+          "id": "q24",
+          "type": "active",
+          "domain": "architecture",
+          "objective": "Décrire le contrôle d'accès en fonction du rôle Azure",
+          "stem": "Un utilisateur doit créer et gérer des ressources dans un seul groupe de ressources. Il ne doit pas pouvoir accorder l'accès à d'autres personnes. Réglez les deux commandes.",
+          "panelTitle": "Ajouter une attribution de rôle",
+          "controls": [
+            {
+              "id": "role",
+              "label": "Rôle",
+              "options": [
+                {
+                  "id": "reader",
+                  "text": "Lecteur"
+                },
+                {
+                  "id": "contributor",
+                  "text": "Contributeur"
+                },
+                {
+                  "id": "owner",
+                  "text": "Propriétaire"
+                },
+                {
+                  "id": "uaa",
+                  "text": "Administrateur de l'accès utilisateur"
+                }
+              ]
+            },
+            {
+              "id": "scope",
+              "label": "Étendue",
+              "options": [
+                {
+                  "id": "mg",
+                  "text": "Groupe d'administration"
+                },
+                {
+                  "id": "sub",
+                  "text": "Abonnement"
+                },
+                {
+                  "id": "rg",
+                  "text": "Groupe de ressources"
+                },
+                {
+                  "id": "res",
+                  "text": "Une ressource"
+                }
+              ]
+            }
+          ],
+          "correct": {
+            "role": "contributor",
+            "scope": "rg"
+          },
+          "rationale": "Le Contributeur peut créer et gérer des ressources, mais ne peut pas attribuer de rôles. Le Propriétaire et l'Administrateur de l'accès utilisateur peuvent accorder l'accès. Le Lecteur ne peut pas créer de ressources. L'étendue du groupe de ressources limite l'attribution à ce groupe. Une seule ressource serait trop étroite, et un abonnement ou un groupe d'administration serait trop large.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/6-role-based-access-control/"
+        },
+        {
+          "id": "q25",
+          "type": "single",
+          "domain": "management",
+          "objective": "Décrire les facteurs qui influencent le coût",
+          "stem": "Une facture comprend un montant pour les données que des machines virtuelles envoient vers Internet. Le transfert entrant n'a pas été facturé. Quel facteur de coût explique ce montant ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Le trafic réseau sortant"
+            },
+            {
+              "id": "B",
+              "text": "Le trafic réseau entrant"
+            },
+            {
+              "id": "C",
+              "text": "Une étiquette de ressource"
+            },
+            {
+              "id": "D",
+              "text": "Le nom du groupe d'administration"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Le trafic réseau est un facteur de coût. Les données qui sortent d'Azure sont facturées. Le transfert entrant est en général gratuit. Les étiquettes et le nom d'un groupe d'administration ne créent pas cette charge réseau.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/2-describe-factors-affect-costs-azure/"
+        },
+        {
+          "id": "q26",
+          "type": "single",
+          "domain": "management",
+          "objective": "Explorer le calculateur de prix",
+          "stem": "Avant de créer quoi que ce soit, un architecte veut une estimation mensuelle du coût d'un ensemble de services Azure envisagé. Quel outil est conçu pour cette estimation ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Le calculateur de prix Azure"
+            },
+            {
+              "id": "B",
+              "text": "Azure Advisor"
+            },
+            {
+              "id": "C",
+              "text": "Un verrou Supprimer"
+            },
+            {
+              "id": "D",
+              "text": "Azure Service Health"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Le calculateur de prix estime le coût des services avant leur déploiement. Azure Advisor recommande des changements sur des ressources déjà en place. Un verrou et Service Health ne produisent pas d'estimation de prix.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/3-compare-pricing-total-cost-of-ownership-calculators/"
+        },
+        {
+          "id": "q27",
+          "type": "multi",
+          "domain": "management",
+          "select": 2,
+          "objective": "Décrire Cost Management",
+          "stem": "Quelles sont les deux capacités de Cost Management pour les dépenses déjà engagées ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Les budgets"
+            },
+            {
+              "id": "B",
+              "text": "Les alertes de coût"
+            },
+            {
+              "id": "C",
+              "text": "Les zones de disponibilité"
+            },
+            {
+              "id": "D",
+              "text": "Un verrou de ressource en lecture seule"
+            },
+            {
+              "id": "E",
+              "text": "La défense en profondeur"
+            }
+          ],
+          "correct": [
+            "A",
+            "B"
+          ],
+          "rationale": "Cost Management analyse les dépenses Azure. Les budgets suivent la dépense par rapport à un montant, et les alertes se déclenchent quand des seuils sont franchis. Les zones de disponibilité, les verrous et la défense en profondeur ne sont pas des fonctions d'analyse des coûts.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/6-describe-azure-tool/"
+        },
+        {
+          "id": "q28",
+          "type": "multi",
+          "domain": "management",
+          "select": 2,
+          "objective": "Décrire le rôle des étiquettes",
+          "stem": "Quels sont les deux usages valides des étiquettes de ressource ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Regrouper les coûts pour qu'un service voie sa part de la facture"
+            },
+            {
+              "id": "B",
+              "text": "Soutenir l'automatisation, par exemple arrêter les machines virtuelles qui portent une étiquette donnée"
+            },
+            {
+              "id": "C",
+              "text": "Bloquer la création de ressources dans une région interdite"
+            },
+            {
+              "id": "D",
+              "text": "Accorder l'accès Propriétaire à un utilisateur"
+            },
+            {
+              "id": "E",
+              "text": "Remplacer l'authentification multifacteur"
+            }
+          ],
+          "correct": [
+            "A",
+            "B"
+          ],
+          "rationale": "Les étiquettes sont des métadonnées. Elles organisent les ressources pour les rapports de coût et pour l'automatisation. Elles n'imposent pas un lieu, n'attribuent pas de rôles RBAC et n'authentifient pas les utilisateurs. Azure Policy et l'accès conditionnel couvrent ces autres besoins.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7-describe-purpose-of-tags/"
+        },
+        {
+          "id": "q29",
+          "type": "single",
+          "domain": "management",
+          "objective": "Décrire Azure Policy",
+          "stem": "Contoso veut que les nouveaux comptes de stockage soient refusés automatiquement s'ils sont créés en dehors de l'Europe. Quel service applique cette règle ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Azure Policy"
+            },
+            {
+              "id": "B",
+              "text": "Une étiquette nommée Europe"
+            },
+            {
+              "id": "C",
+              "text": "Azure Advisor"
+            },
+            {
+              "id": "D",
+              "text": "Le calculateur de prix"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Azure Policy évalue les propriétés des ressources, comme le lieu, et peut refuser une ressource non conforme. Une étiquette enregistre une information mais ne bloque pas un déploiement. Advisor et le calculateur de prix ne refusent pas de ressources.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/3-describe-purpose-azure-policy/"
+        },
+        {
+          "id": "q30",
+          "type": "single",
+          "domain": "management",
+          "objective": "Décrire les verrous de ressource",
+          "stem": "Les utilisateurs autorisés doivent encore pouvoir modifier un compte de stockage, mais ils ne doivent pas pouvoir le supprimer. Quel verrou appliquez-vous ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Supprimer"
+            },
+            {
+              "id": "B",
+              "text": "Lecture seule"
+            },
+            {
+              "id": "C",
+              "text": "Attribution du rôle Contributeur"
+            },
+            {
+              "id": "D",
+              "text": "Niveau d'accès archive"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Un verrou Supprimer permet aux utilisateurs autorisés de lire et de modifier une ressource, et il bloque la suppression. Un verrou Lecture seule bloque à la fois les modifications et la suppression. Le RBAC seul n'empêche pas un propriétaire de supprimer la ressource. Le niveau d'accès n'a pas de lien.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/4-describe-purpose-resource-locks/"
+        },
+        {
+          "id": "q31",
+          "type": "build",
+          "domain": "management",
+          "select": 3,
+          "objective": "Décrire Azure Policy",
+          "stem": "Placez les trois étapes dans la zone de réponse et classez-les de la première à la dernière.",
+          "choices": [
+            {
+              "id": "def",
+              "text": "Créer une définition de stratégie"
+            },
+            {
+              "id": "assign",
+              "text": "Attribuer la stratégie à une étendue"
+            },
+            {
+              "id": "review",
+              "text": "Examiner l'état de conformité"
+            },
+            {
+              "id": "drop",
+              "text": "Supprimer le groupe d'administration"
+            }
+          ],
+          "correct": [
+            "def",
+            "assign",
+            "review"
+          ],
+          "rationale": "On rédige une définition de stratégie, on l'attribue à une étendue comme un abonnement ou un groupe de ressources, puis on examine si les ressources sont conformes. Supprimer le groupe d'administration ne fait pas partie de l'application d'une stratégie.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/3-describe-purpose-azure-policy/"
+        },
+        {
+          "id": "q32",
+          "type": "drag",
+          "domain": "management",
+          "objective": "Décrire les outils de gestion et de supervision",
+          "stem": "Associez chaque tâche à l'outil que vous ouvririez.",
+          "sources": [
+            {
+              "id": "calc",
+              "text": "Calculateur de prix"
+            },
+            {
+              "id": "policy",
+              "text": "Azure Policy"
+            },
+            {
+              "id": "advisor",
+              "text": "Azure Advisor"
+            },
+            {
+              "id": "logs",
+              "text": "Log Analytics"
+            },
+            {
+              "id": "lock",
+              "text": "Verrou de ressource"
+            }
+          ],
+          "targets": [
+            {
+              "id": "t1",
+              "label": "Estimer le coût mensuel d'un nouvel environnement avant de le créer."
+            },
+            {
+              "id": "t2",
+              "label": "Refuser les ressources créées dans une région interdite."
+            },
+            {
+              "id": "t3",
+              "label": "Lire des recommandations personnalisées sur le coût et la fiabilité de ressources déjà en place."
+            },
+            {
+              "id": "t4",
+              "label": "Interroger les journaux collectés sur des machines virtuelles."
+            }
+          ],
+          "correct": {
+            "t1": "calc",
+            "t2": "policy",
+            "t3": "advisor",
+            "t4": "logs"
+          },
+          "rationale": "Le calculateur de prix estime un coût futur. Azure Policy peut refuser des ressources non conformes. Azure Advisor recommande des améliorations pour des ressources existantes. Log Analytics stocke et interroge les journaux. Un verrou de ressource bloque seulement la suppression ou la modification ; il n'estime pas, ne recommande pas et n'interroge pas.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/2-describe-purpose-of-azure-advisor/"
+        },
+        {
+          "id": "q33",
+          "type": "single",
+          "domain": "management",
+          "objective": "Décrire Azure Arc",
+          "stem": "Contoso veut appliquer Azure Policy et la supervision à un serveur Windows qui restera dans le centre de données de Lyon. Quel service projette ce serveur dans la gestion Azure ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Azure Arc"
+            },
+            {
+              "id": "B",
+              "text": "Le niveau d'accès archive"
+            },
+            {
+              "id": "C",
+              "text": "Une zone DNS publique"
+            },
+            {
+              "id": "D",
+              "text": "Le calculateur de prix"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Azure Arc projette dans Azure Resource Manager des serveurs et d'autres ressources qui s'exécutent hors d'Azure, afin d'y appliquer la stratégie, l'inventaire et la supervision. Le niveau archive, le DNS et le calculateur de prix n'intègrent pas un serveur local.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/3-describe-purpose-of-azure-arc/"
+        },
+        {
+          "id": "q34",
+          "type": "single",
+          "domain": "management",
+          "objective": "Décrire l'infrastructure as code et les modèles ARM",
+          "stem": "Une équipe veut déployer plusieurs fois le même ensemble de ressources à partir d'un modèle déclaratif. Quel artefact le permet ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Un modèle Azure Resource Manager"
+            },
+            {
+              "id": "B",
+              "text": "Une recommandation Azure Advisor"
+            },
+            {
+              "id": "C",
+              "text": "Un verrou Lecture seule"
+            },
+            {
+              "id": "D",
+              "text": "Une exportation du total mensuel du calculateur de prix"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Un modèle ARM est de l'infrastructure as code déclarative. On décrit les ressources, et Azure Resource Manager les déploie de façon reproductible. Bicep est un langage qui produit des modèles ARM. Advisor, les verrous et le calculateur de prix ne déploient pas un ensemble de ressources.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/4-describe-azure-resource-manager-azure-arm-templates/"
+        },
+        {
+          "id": "q35",
+          "type": "active",
+          "domain": "management",
+          "objective": "Décrire Cloud Shell, Azure CLI et Azure PowerShell",
+          "stem": "Cloud Shell est un interpréteur de commandes ouvert dans le navigateur. Indiquez les deux outils que l'on peut y exécuter.",
+          "panelTitle": "Cloud Shell",
+          "controls": [
+            {
+              "id": "first",
+              "label": "Premier outil",
+              "options": [
+                {
+                  "id": "cli",
+                  "text": "Azure CLI"
+                },
+                {
+                  "id": "policy",
+                  "text": "Azure Policy"
+                },
+                {
+                  "id": "advisor",
+                  "text": "Azure Advisor"
+                }
+              ]
+            },
+            {
+              "id": "second",
+              "label": "Second outil",
+              "options": [
+                {
+                  "id": "ps",
+                  "text": "Azure PowerShell"
+                },
+                {
+                  "id": "lock",
+                  "text": "Un verrou Supprimer"
+                },
+                {
+                  "id": "calc",
+                  "text": "Le calculateur de prix"
+                }
+              ]
+            }
+          ],
+          "correct": {
+            "first": "cli",
+            "second": "ps"
+          },
+          "rationale": "Cloud Shell fournit un interpréteur dans le navigateur, avec Azure CLI et Azure PowerShell déjà disponibles. Azure Policy, Advisor, un verrou et le calculateur de prix ne sont pas les deux outils en ligne de commande hébergés dans cet interpréteur.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/2-describe-interacting-azure/"
+        },
+        {
+          "id": "q36",
+          "type": "hot",
+          "domain": "management",
+          "select": 1,
+          "objective": "Décrire Azure Advisor",
+          "stem": "Vous voulez des recommandations personnalisées sur le coût, la sécurité, la fiabilité et les performances de ressources déjà déployées. Sélectionnez l'outil.",
+          "regions": [
+            {
+              "id": "advisor",
+              "label": "Azure Advisor",
+              "detail": "Recommandations personnalisées"
+            },
+            {
+              "id": "health",
+              "label": "Service Health",
+              "detail": "Incidents Azure qui touchent vos services"
+            },
+            {
+              "id": "monitor",
+              "label": "Azure Monitor",
+              "detail": "Métriques, journaux et alertes"
+            },
+            {
+              "id": "policy",
+              "label": "Azure Policy",
+              "detail": "Règles qui autorisent ou refusent des ressources"
+            }
+          ],
+          "correct": [
+            "advisor"
+          ],
+          "rationale": "Azure Advisor examine vos ressources existantes et recommande des améliorations de coût, de sécurité, de fiabilité, de performances et d'excellence opérationnelle. Service Health signale les incidents de plateforme. Azure Monitor collecte la télémétrie. Azure Policy applique des règles.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/2-describe-purpose-of-azure-advisor/"
+        },
+        {
+          "id": "q37",
+          "type": "exhibit",
+          "domain": "management",
+          "objective": "Décrire les facteurs qui influencent le coût",
+          "stem": "La même taille de machine virtuelle coûte plus cher en Europe Nord que dans la région utilisée l'an dernier. Utilisez le document. Quel facteur explique la différence ?",
+          "exhibits": [
+            {
+              "id": "cost",
+              "title": "Facteurs de coût",
+              "columns": [
+                "Facteur",
+                "Ce qui change la facture"
+              ],
+              "rows": [
+                [
+                  "Type de ressource",
+                  "Une machine virtuelle GPU coûte plus cher qu'une petite machine virtuelle à usage général."
+                ],
+                [
+                  "Zone géographique",
+                  "La même taille de machine virtuelle a un prix différent dans une autre région."
+                ],
+                [
+                  "Réseau sortant",
+                  "Les données envoyées hors d'Azure sont facturées."
+                ],
+                [
+                  "Réseau entrant",
+                  "Les données envoyées vers Azure ne sont en général pas facturées."
+                ]
+              ]
+            }
+          ],
+          "choices": [
+            {
+              "id": "A",
+              "text": "Type de ressource"
+            },
+            {
+              "id": "B",
+              "text": "Zone géographique"
+            },
+            {
+              "id": "C",
+              "text": "Réseau sortant"
+            },
+            {
+              "id": "D",
+              "text": "Réseau entrant"
+            }
+          ],
+          "correct": [
+            "B"
+          ],
+          "rationale": "Le document indique que la même taille de machine virtuelle a un prix différent dans une autre région. C'est le facteur géographique. Le type de ressource n'a pas changé, et la question ne porte pas sur le transfert de données.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/2-describe-factors-affect-costs-azure/"
+        }
+      ]
+    },
+    {
+      "id": "case",
+      "title": "Étude de cas",
+      "case": {
+        "title": "Contoso App1",
+        "topics": [
+          {
+            "id": "overview",
+            "title": "Vue d'ensemble",
+            "paragraphs": [
+              "Contoso, Ltd. fabrique des machines d'emballage. Environ 1 200 employés travaillent sur un seul site, à Lyon, en France.",
+              "L'entreprise va déplacer une application métier nommée App1 vers Azure. Contoso veut cesser d'acheter des serveurs et payer chaque mois la capacité utilisée. Les données doivent rester dans l'Union européenne."
+            ]
+          },
+          {
+            "id": "current",
+            "title": "Environnement actuel",
+            "paragraphs": [
+              "App1 s'exécute sur deux serveurs physiques du centre de données de Lyon. Les fichiers de l'application sont sur un serveur de fichiers local. Il n'y a pas de second site.",
+              "Les administrateurs déploient les serveurs à la main. Contoso a un abonnement Azure, encore sans ressource."
+            ]
+          },
+          {
+            "id": "requirements",
+            "title": "Exigences",
+            "paragraphs": [
+              "App1 doit continuer de fonctionner si un centre de données de la région Azure choisie tombe en panne. Les données d'App1 doivent rester dans l'UE.",
+              "Il faut empêcher les administrateurs de créer des ressources en dehors d'une liste de régions européennes approuvées.",
+              "Le stockage d'App1 doit rester disponible si un centre de données de la région tombe en panne, et il ne doit pas être accessible depuis l'Internet public."
+            ]
+          },
+          {
+            "id": "planned",
+            "title": "Changements planifiés",
+            "paragraphs": [
+              "Déplacer App1 vers des machines virtuelles dans une région Azure de l'UE. Placer les fichiers de l'application dans Stockage Azure. Utiliser les outils Azure pour contrôler le lieu de création des ressources."
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "c01",
+          "type": "single",
+          "domain": "architecture",
+          "objective": "Décrire les zones de disponibilité",
+          "stem": "Vous devez respecter l'exigence selon laquelle App1 continue de fonctionner si un centre de données de la région choisie tombe en panne. Les données doivent rester dans l'UE. Que devez-vous faire ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Placer les machines virtuelles dans des zones de disponibilité différentes d'une région de l'UE qui prend en charge les zones."
+            },
+            {
+              "id": "B",
+              "text": "Placer les machines virtuelles dans un groupe à haute disponibilité d'un seul centre de données."
+            },
+            {
+              "id": "C",
+              "text": "Utiliser une seule machine virtuelle plus grande."
+            },
+            {
+              "id": "D",
+              "text": "Déployer les machines virtuelles dans une région souveraine hors de l'UE."
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Les zones de disponibilité sont des centres de données distincts dans une région : App1 peut survivre à la perte d'un centre de données tout en restant dans une région de l'UE. Un groupe à haute disponibilité ne répartit les machines que sur des domaines d'erreur d'un seul centre de données. Une machine plus grande n'a pas de second centre de données. Une région souveraine hors de l'UE romprait l'exigence de résidence des données.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/5-describe-azure-physical-infrastructure/"
+        },
+        {
+          "id": "c02",
+          "type": "single",
+          "domain": "management",
+          "objective": "Décrire Azure Policy",
+          "stem": "Vous devez empêcher les administrateurs de créer des ressources en dehors des régions européennes approuvées. Que devez-vous utiliser ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Une attribution Azure Policy qui refuse les lieux non autorisés"
+            },
+            {
+              "id": "B",
+              "text": "Un verrou Supprimer sur l'abonnement"
+            },
+            {
+              "id": "C",
+              "text": "Une étiquette nommée Europe"
+            },
+            {
+              "id": "D",
+              "text": "Azure Advisor"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "rationale": "Azure Policy peut refuser une ressource dont le lieu n'est pas dans la liste autorisée. Un verrou Supprimer bloque la suppression, pas la région d'une nouvelle ressource. Une étiquette n'impose rien. Advisor recommande ; il ne bloque pas un déploiement.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/3-describe-purpose-azure-policy/"
+        },
+        {
+          "id": "c03",
+          "type": "multi",
+          "domain": "architecture",
+          "select": 2,
+          "objective": "Décrire la redondance du stockage et les points de terminaison privés",
+          "stem": "Vous devez respecter les deux exigences de stockage d'App1. Quels sont les deux choix à retenir ?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Stockage localement redondant (LRS)"
+            },
+            {
+              "id": "B",
+              "text": "Stockage redondant interzone (ZRS)"
+            },
+            {
+              "id": "C",
+              "text": "Accès public anonyme sur le point de terminaison de stockage"
+            },
+            {
+              "id": "D",
+              "text": "Un point de terminaison privé"
+            },
+            {
+              "id": "E",
+              "text": "Un compte de stockage dans une région hors d'Europe"
+            }
+          ],
+          "correct": [
+            "B",
+            "D"
+          ],
+          "rationale": "Le ZRS conserve des copies synchrones entre zones de disponibilité : la panne d'un centre de données de la région ne met pas le stockage hors ligne. Un point de terminaison privé donne au compte une adresse IP privée sur le réseau virtuel, ce qui évite de l'exposer sur l'Internet public. Le LRS reste dans un seul centre de données. L'accès anonyme et une région hors d'Europe contredisent les exigences.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/3-redundancy/"
+        }
+      ]
+    }
+  ]
+}
