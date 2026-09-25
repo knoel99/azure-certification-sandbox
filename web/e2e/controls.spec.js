@@ -27,8 +27,20 @@ async function exerciseBuild(page, question) {
 async function exerciseDrag(page, question) {
   const target = question.targets[0];
   const sourceId = question.correct[target.id];
-  await page.locator(`[data-source="${sourceId}"]`).dragTo(page.locator(`[data-drop="${target.id}"]`));
-  await expect(page.locator(`select[data-target="${target.id}"]`)).toHaveValue(sourceId);
+  const sourceText = question.sources.find((source) => source.id === sourceId).text;
+  // Vrai glisser-déposer : jeton de la banque vers la zone de dépôt.
+  await page.locator(`.bank [data-source="${sourceId}"]`).dragTo(page.locator(`[data-drop="${target.id}"]`));
+  await expect(page.locator(`[data-drop="${target.id}"] .chip`)).toContainText(sourceText);
+  await expect(page.locator(`.bank [data-source="${sourceId}"]`)).toHaveClass(/used/);
+  // La croix renvoie le jeton à la banque.
+  await page.locator(`[data-drop="${target.id}"] .chip-x`).click();
+  await expect(page.locator(`[data-drop="${target.id}"] .chip`)).toHaveCount(0);
+  await expect(page.locator(`.bank [data-source="${sourceId}"]`)).not.toHaveClass(/used/);
+  // Repli tactile : cliquer le jeton puis la zone.
+  await page.locator(`.bank [data-source="${sourceId}"]`).click();
+  await expect(page.locator(`.bank [data-source="${sourceId}"]`)).toHaveClass(/picked/);
+  await page.locator(`[data-drop="${target.id}"]`).click();
+  await expect(page.locator(`[data-drop="${target.id}"] .chip`)).toContainText(sourceText);
 }
 
 async function exerciseTabs(page, question) {

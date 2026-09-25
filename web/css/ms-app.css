@@ -27,7 +27,7 @@
 
 .eframeWrapper .drag, .eframeWrapper .build { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 1rem; }
 .eframeWrapper .src, .eframeWrapper .slot, .eframeWrapper .target, .eframeWrapper .hot, .eframeWrapper .window {
-  border: 1px solid var(--ms-item-outline-color, #d4d4d4);
+  border: 1px solid var(--widget-border, #6b7280);
   padding: 8px 10px;
   margin: 6px 0;
   background: var(--ms-window-color);
