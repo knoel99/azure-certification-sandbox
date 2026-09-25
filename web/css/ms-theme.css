@@ -1,7 +1,6 @@
 @font-face {
     font-family: "Segoe UI";
-    src: local("Segoe UI"),
-    url("/Templates/Common Scripts/Fonts/MacOS/Segoe UI/segoeui.ttf") format("truetype");
+    src: local("Segoe UI");
 }
 
 :root {
