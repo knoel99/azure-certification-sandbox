@@ -30,6 +30,7 @@ const state = {
   calcOpen: false,
   themeOpen: false,
   calcValue: "0",
+  dragPick: null,
   menu: null,
   toolbarBig: false,
   reviewFilter: "all",
@@ -138,6 +139,7 @@ function resetAttempt() {
   state.calcOpen = false;
   state.themeOpen = false;
   state.calcValue = "0";
+  state.dragPick = null;
   if (ticker) clearInterval(ticker);
   ticker = null;
 }
@@ -268,24 +270,36 @@ function hotButtons(q) {
   </div>`;
 }
 
+const DRAG_BANK = "__bank__";
+
+function currentPick(q) {
+  return q.sources.some((source) => source.id === state.dragPick) ? state.dragPick : null;
+}
+
 function dragBoard(q) {
   const strings = t();
   const answer = state.answers[q.id] || {};
   const used = new Set(Object.values(answer));
+  const picked = currentPick(q);
   return `<div class="drag">
-    <div>
+    <div class="bank" data-drop="${DRAG_BANK}">
       <h2>${esc(strings.sources)}</h2>
-      ${q.sources.map((source) => `<div class="src ${used.has(source.id) ? "used" : ""}" draggable="true" data-source="${esc(source.id)}">${esc(source.text)}</div>`).join("")}
+      ${q.sources.map((source) => {
+        const on = used.has(source.id);
+        return `<div class="src ${on ? "used" : ""} ${picked === source.id ? "picked" : ""}" draggable="${on ? "false" : "true"}" role="button" tabindex="${on ? "-1" : "0"}" data-source="${esc(source.id)}" data-action="drag-pick" data-value="${esc(source.id)}" aria-pressed="${picked === source.id}">${esc(source.text)}</div>`;
+      }).join("")}
     </div>
-    <div>
+    <div class="drops">
       <h2>${esc(strings.targets)}</h2>
-      ${q.targets.map((target) => `<div class="target" data-drop="${esc(target.id)}">
-        <p>${esc(target.label)}</p>
-        <select data-target="${esc(target.id)}" aria-label="${esc(target.label)}">
-          <option value="">${esc(strings.choose)}</option>
-          ${q.sources.map((source) => `<option value="${esc(source.id)}" ${answer[target.id] === source.id ? "selected" : ""}>${esc(source.text)}</option>`).join("")}
-        </select>
-      </div>`).join("")}
+      ${q.targets.map((target) => {
+        const placed = answer[target.id];
+        const token = placed
+          ? `<span class="chip" draggable="true" data-source="${esc(placed)}">${esc(textOf(q.sources, placed))}<button type="button" class="chip-x" data-action="drag-remove" data-value="${esc(target.id)}" aria-label="${esc(strings.remove)} : ${esc(textOf(q.sources, placed))}">×</button></span>`
+          : `<span class="drop-hint">${esc(strings.choose)}…</span>`;
+        return `<div class="target ${placed ? "filled" : ""} ${picked ? "armed" : ""}" data-drop="${esc(target.id)}" data-action="drag-drop" data-value="${esc(target.id)}">
+          <p>${esc(target.label)}</p>${token}
+        </div>`;
+      }).join("")}
     </div>
   </div>`;
 }
@@ -1000,7 +1014,17 @@ function assignTarget(targetId, sourceId) {
   if (sourceId) next[targetId] = sourceId;
   else delete next[targetId];
   state.answers[q.id] = next;
-  pendingFocus = `[data-target="${cssAttr(targetId)}"]`;
+  pendingFocus = `[data-drop="${cssAttr(targetId)}"]`;
+  render();
+}
+
+function unassignSource(sourceId) {
+  const q = question();
+  const next = { ...(state.answers[q.id] || {}) };
+  for (const key of Object.keys(next)) {
+    if (next[key] === sourceId) delete next[key];
+  }
+  state.answers[q.id] = next;
   render();
 }
 
@@ -1139,7 +1163,23 @@ app.addEventListener("click", (event) => {
     render();
   } else if (action === "pick") pick(el.dataset.choice);
   else if (action === "hot") pickHot(el.dataset.region);
-  else if (action === "build-add") {
+  else if (action === "drag-pick") {
+    if (el.classList.contains("used")) return;
+    state.dragPick = state.dragPick === el.dataset.value ? null : el.dataset.value;
+    render();
+  } else if (action === "drag-drop") {
+    const pick = currentPick(question());
+    if (!pick) return;
+    state.dragPick = null;
+    assignTarget(el.dataset.value, pick);
+  } else if (action === "drag-remove") {
+    const q = question();
+    const next = { ...(state.answers[q.id] || {}) };
+    delete next[el.dataset.value];
+    state.answers[q.id] = next;
+    pendingFocus = `[data-drop="${cssAttr(el.dataset.value)}"]`;
+    render();
+  } else if (action === "build-add") {
     const q = question();
     const answer = state.answers[q.id] || [];
     if (answer.length >= q.select) return;
@@ -1310,8 +1350,7 @@ app.addEventListener("change", (event) => {
   } else if (target.dataset.toggle === "timer") {
     state.timerOn = target.checked;
     render();
-  } else if (target.dataset.target) assignTarget(target.dataset.target, target.value);
-  else if (target.dataset.control) assignControl(target.dataset.control, target.value);
+  } else if (target.dataset.control) assignControl(target.dataset.control, target.value);
   else if (target.dataset.statement) {
     const q = question();
     const next = { ...(state.answers[q.id] || {}) };
@@ -1325,6 +1364,7 @@ app.addEventListener("dragstart", (event) => {
   const source = event.target.closest("[data-source]");
   if (!source) return;
   event.dataTransfer.setData("text/plain", source.dataset.source);
+  event.dataTransfer.effectAllowed = "move";
 });
 
 app.addEventListener("dragover", (event) => {
@@ -1335,7 +1375,17 @@ app.addEventListener("drop", (event) => {
   const zone = event.target.closest("[data-drop]");
   if (!zone) return;
   event.preventDefault();
-  assignTarget(zone.dataset.drop, event.dataTransfer.getData("text/plain"));
+  const sourceId = event.dataTransfer.getData("text/plain");
+  if (zone.dataset.drop === DRAG_BANK) unassignSource(sourceId);
+  else assignTarget(zone.dataset.drop, sourceId);
+});
+
+app.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  const el = event.target.closest?.("[data-action]");
+  if (!el || ["BUTTON", "A", "INPUT", "SELECT", "TEXTAREA"].includes(el.tagName)) return;
+  event.preventDefault();
+  el.click();
 });
 
 window.addEventListener("beforeunload", (event) => {

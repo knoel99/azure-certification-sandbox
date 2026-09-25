@@ -55,7 +55,11 @@ export async function answerQuestion(page, question) {
     }
   } else if (question.type === "drag") {
     for (const target of question.targets) {
-      await page.locator(`select[data-target="${target.id}"]`).selectOption(correct[target.id]);
+      await page.locator(`.bank [data-source="${correct[target.id]}"]`).click();
+      await page.locator(`[data-drop="${target.id}"]`).click();
+      await expect(page.locator(`[data-drop="${target.id}"] .chip`)).toContainText(
+        question.sources.find((source) => source.id === correct[target.id]).text,
+      );
     }
   } else if (question.type === "active") {
     for (const control of question.controls) {

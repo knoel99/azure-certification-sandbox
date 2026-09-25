@@ -2,6 +2,7 @@
   --ink: #1c2430;
   --muted: #5c6b7a;
   --line: #d5dde6;
+  --widget-border: #6b7280;
   --bg: #e8eef3;
   --paper: #fff;
   --blue: #0d4f8b;
@@ -172,7 +173,7 @@ button { cursor: pointer; }
 .window header { background: #e8eef5; padding: 8px 12px; font-weight: 650; }
 .window .body { padding: 12px; display: grid; gap: 10px; }
 .window label { display: grid; gap: 4px; font-weight: 600; }
-select { padding: 8px; border-radius: 6px; border: 1px solid var(--line); background: #fff; }
+select { padding: 8px; border-radius: 6px; border: 1px solid var(--widget-border, #6b7280); background: var(--ms-window-color, #fff); color: var(--ms-window-text-color, #1c2430); }
 .drag, .build { grid-template-columns: 1fr 1fr; }
 .target, .slot {
   background: #fff;
@@ -180,6 +181,36 @@ select { padding: 8px; border-radius: 6px; border: 1px solid var(--line); backgr
   border-radius: 8px;
   padding: 8px;
   margin-bottom: 8px;
+}
+.eframeWrapper .target { border-color: var(--widget-border, #6b7280); min-height: 78px; }
+.eframeWrapper .target.filled { border-style: solid; }
+.eframeWrapper .target.armed { border-color: var(--blue); border-width: 2px; }
+.eframeWrapper .src { cursor: grab; }
+.eframeWrapper .src.used { cursor: default; opacity: .55; }
+.eframeWrapper .src.picked { border-color: var(--blue); background: #eef5fb; box-shadow: 0 0 0 2px rgba(13, 79, 139, .25); }
+html.sandbox.dark-mode .eframeWrapper .src.picked { background: #2b3a4d; }
+.drop-hint { display: inline-block; margin-top: 6px; color: var(--muted); font-style: italic; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 6px 10px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 6px;
+  cursor: grab;
+  font-weight: 600;
+}
+html.sandbox.yellow-on-black .chip { color: #000; }
+.chip-x {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 2px;
+  cursor: pointer;
 }
 .slot { display: flex; gap: 8px; align-items: center; justify-content: space-between; }
 .tabs { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
@@ -303,6 +334,7 @@ html.sandbox.dark-mode {
   --blue: #75b6e7;
   --ink: #fff;
   --bg: #202020;
+  --widget-border: #a8a8a8;
 }
 html.sandbox.yellow-on-black {
   --ms-window-color: #000;
@@ -315,6 +347,7 @@ html.sandbox.yellow-on-black {
   --blue: #ff0;
   --ink: #ff0;
   --bg: #000;
+  --widget-border: #ff0;
 }
 html.sandbox body { background: var(--ms-window-color); color: var(--ms-window-text-color); font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif; letter-spacing: 0.03em; line-height: 1.25; }
 

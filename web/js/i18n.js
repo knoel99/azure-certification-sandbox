@@ -134,7 +134,7 @@ export const STR = {
     helpText: {
       single: "Une seule réponse est correcte. Sélectionnez une option.",
       multi: "Plusieurs réponses sont correctes. L'énoncé indique combien en sélectionner. Le point n'est obtenu que si toutes les bonnes options sont choisies, sans option incorrecte.",
-      drag: "Associez chaque élément à la bonne cible. Une cible ne reçoit qu'un élément. Vous pouvez glisser l'élément ou le choisir dans la liste.",
+      drag: "Associez chaque élément à la bonne cible. Un élément ne remplit qu'une seule cible : le déposer ailleurs le déplace automatiquement. Glissez-le, ou cliquez l'élément puis la cible ; la croix sur un élément posé le renvoie à la banque.",
       build: "Déplacez le nombre d'actions demandé vers la zone de réponse, puis classez-les de haut en bas. Le premier élément est la première étape.",
       active: "Réglez chaque commande de la zone de réponse. La combinaison des commandes constitue votre réponse.",
       hot: "Sélectionnez les zones indiquées. Une zone sélectionnée fait partie de votre réponse.",
@@ -278,7 +278,7 @@ export const STR = {
     helpText: {
       single: "One answer is correct. Select one option.",
       multi: "More than one answer is correct. The question states how many to select. You earn the point only when every correct option is selected and no incorrect option is selected.",
-      drag: "Match each item to the right target. A target holds one item. Drag the item, or pick it from the list.",
+      drag: "Match each item to the right target. An item fills only one target: dropping it elsewhere moves it automatically. Drag the item, or click the item then the target; the cross on a placed item returns it to the bank.",
       build: "Move the requested number of actions into the answer area, then order them from top to bottom. The first item is the first step.",
       active: "Set each control in the answer area. The combination of controls is your answer.",
       hot: "Select the areas the question asks for. A selected area is part of your answer.",
