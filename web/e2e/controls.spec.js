@@ -66,6 +66,14 @@ test("tous les contrôles rendus", async ({ page }) => {
   await openFresh(page);
   await setLang(page, "fr");
 
+  const noteLinks = page.locator(".home-board .note a");
+  await expect(noteLinks).toHaveCount(3);
+  expect(await noteLinks.evaluateAll((els) => els.map((el) => el.getAttribute("href")))).toEqual([
+    "https://aka.ms/CertificationsPoster",
+    "https://github.com/knoel99/azure-certification-sandbox",
+    "https://knoel99.github.io/",
+  ]);
+
   const unavailable = page.locator('[data-action="unavailable"]');
   await expect(unavailable).toHaveCount(catalog.cards.filter((card) => !card.available).length);
   const unavailableCount = await unavailable.count();
