@@ -791,7 +791,7 @@ function posterScreen() {
   }).join("");
   return msShell({
     title: esc(strings.brand),
-    body: `<div class="ITSDisplay home-board"><p class="note">${esc(strings.unofficial)} <a href="https://aka.ms/CertificationsPoster" target="_blank" rel="noopener noreferrer">${esc(strings.posterUpdated)}</a></p><p class="scroll-hint">${esc(strings.scrollHint)}</p><div class="poster-scroll"><div class="poster"><div class="group-row"><div></div><div class="groups">${groups}</div></div>${bands}</div></div></div>`,
+    body: `<div class="ITSDisplay home-board"><p class="note">${esc(strings.unofficial)} <a href="https://aka.ms/CertificationsPoster" target="_blank" rel="noopener noreferrer">${esc(strings.posterUpdated)}</a> · <a href="https://github.com/knoel99/azure-certification-sandbox" target="_blank" rel="noopener noreferrer">${esc(strings.sourceLabel)}</a></p><p class="scroll-hint">${esc(strings.scrollHint)}</p><div class="poster-scroll"><div class="poster"><div class="group-row"><div></div><div class="groups">${groups}</div></div>${bands}</div></div></div>`,
     preexam: true,
     showClock: false,
     showProgress: false,
@@ -1113,6 +1113,10 @@ function onYes() {
 }
 
 app.addEventListener("click", (event) => {
+  if (state.toolbarBig && !event.target.closest("#ControlPanelFrameID") && window.matchMedia("(max-width: 800px)").matches) {
+    state.toolbarBig = false;
+    render();
+  }
   const el = event.target.closest("[data-action]");
   if (!el || el.disabled) return;
   const action = el.dataset.action;
