@@ -50,6 +50,7 @@ button { cursor: pointer; }
 .langs button { background: transparent; color: #fff; border-color: rgba(255,255,255,.45); }
 .langs button[aria-pressed="true"] { background: #fff; color: var(--blue-d); }
 .note { color: var(--muted); margin: 0; }
+.home-board .note a { color: var(--ms-hotlight-color, #0f6cbd); font-weight: 650; }
 .wrap { padding: 16px; max-width: 1100px; }
 .poster-wrap { padding: 12px 16px 28px; }
 .scroll-hint { margin: 0 0 8px; color: var(--muted); }
