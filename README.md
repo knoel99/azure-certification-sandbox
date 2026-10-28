@@ -4,7 +4,7 @@ Bac à sable pour la préparation des certifications Microsoft Azure.
 
 **En ligne :** <https://knoel99.github.io/azure-certification-sandbox/>
 
-L'accueil reprend la grille du poster Credentials (juillet 2026). Seul AZ-900 est jouable, en français et en anglais.
+L'accueil reprend la grille du poster Credentials (juillet 2026). Deux examens sont jouables, en français et en anglais : AZ-900 (Azure Fundamentals) et SC-900 (Security, Compliance, and Identity Fundamentals).
 
 ## Déploiement
 

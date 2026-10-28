@@ -1,22 +1,24 @@
 import { readFileSync } from "node:fs";
 import { expect } from "@playwright/test";
 
-export function loadExam(lang) {
-  return JSON.parse(readFileSync(new URL(`../data/az-900/${lang}.json`, import.meta.url), "utf8"));
+export function loadExam(lang, examId = "az-900") {
+  return JSON.parse(readFileSync(new URL(`../data/${examId}/${lang}.json`, import.meta.url), "utf8"));
 }
 
 export function loadCatalog() {
   return JSON.parse(readFileSync(new URL("../data/catalog.json", import.meta.url), "utf8"));
 }
 
-export async function openFresh(page) {
+export async function openFresh(page, examId = "az-900") {
   await page.addInitScript(() => {
+    Object.keys(sessionStorage).filter((key) => key.startsWith("run-")).forEach((key) => sessionStorage.removeItem(key));
     sessionStorage.removeItem("az900-run");
+    sessionStorage.removeItem("az-active-run");
     localStorage.removeItem("az-lang");
     localStorage.removeItem("az-theme");
   });
   await page.goto("/");
-  await expect(page.locator('[data-action="open"]')).toBeVisible();
+  await expect(page.locator(`[data-action="open"][data-id="${examId}"]`)).toBeVisible();
 }
 
 export async function setLang(page, lang) {
@@ -92,11 +94,11 @@ export async function clickFilter(page, filter) {
   await page.locator(`[data-action="review-filter"][data-filter="${filter}"]`).click();
 }
 
-export async function runExam(page, lang) {
-  const exam = loadExam(lang);
-  await openFresh(page);
+export async function runExam(page, lang, examId = "az-900") {
+  const exam = loadExam(lang, examId);
+  await openFresh(page, examId);
   await setLang(page, lang);
-  await page.locator('[data-action="open"]').click();
+  await page.locator(`[data-action="open"][data-id="${examId}"]`).click();
   await page.locator('[data-action="to-ready"]').click();
   await page.locator('[data-action="begin"]').click();
   for (const section of exam.sections) {
@@ -110,11 +112,11 @@ export async function runExam(page, lang) {
   await page.locator("#modal-yes").click();
   await expect(page.locator("p.score")).toContainText("40 / 40");
   const meters = page.locator(".bars meter");
-  await expect(meters).toHaveCount(3);
-  for (let index = 0; index < 3; index += 1) {
+  await expect(meters).toHaveCount(exam.domains.length);
+  for (let index = 0; index < exam.domains.length; index += 1) {
     const max = await meters.nth(index).getAttribute("max");
     await expect(meters.nth(index)).toHaveAttribute("value", max);
   }
   await page.locator("#Next").click();
-  await expect(page.locator('[data-action="open"]')).toBeVisible();
+  await expect(page.locator(`[data-action="open"][data-id="${examId}"]`)).toBeVisible();
 }

@@ -9,6 +9,7 @@ let ticker = null;
 
 const state = {
   lang: localStorage.getItem("az-lang") || "fr",
+  examId: "az-900",
   screen: "home",
   sectionIndex: 0,
   questionIndex: 0,
@@ -56,8 +57,11 @@ function fmt(seconds) {
   return `${pad(h)}:${pad(m)}:${pad(s)}`;
 }
 
+const runKey = (examId) => `run-${examId}`;
+const runPointerKey = "az-active-run";
+
 function exam() {
-  return exams[state.lang];
+  return exams[state.examId]?.[state.lang] || Object.values(exams)[0]?.[state.lang];
 }
 
 function section() {
@@ -80,10 +84,14 @@ function learnHref(url) {
 
 function save() {
   if (state.screen === "home" || state.screen === "intro" || state.screen === "ready") {
+    sessionStorage.removeItem(runKey(state.examId));
+    sessionStorage.removeItem(runPointerKey);
     sessionStorage.removeItem("az900-run");
     return;
   }
-  sessionStorage.setItem("az900-run", JSON.stringify({
+  sessionStorage.setItem(runPointerKey, state.examId);
+  sessionStorage.setItem(runKey(state.examId), JSON.stringify({
+    examId: state.examId,
     lang: state.lang,
     screen: state.screen,
     sectionIndex: state.sectionIndex,
@@ -105,12 +113,17 @@ function save() {
 }
 
 function restore() {
-  const raw = sessionStorage.getItem("az900-run");
+  const pointer = sessionStorage.getItem(runPointerKey);
+  if (pointer && exams[pointer]?.[state.lang]) state.examId = pointer;
+  const key = pointer ? runKey(state.examId) : "az900-run";
+  const raw = sessionStorage.getItem(key);
   if (!raw) return;
   try {
     const saved = JSON.parse(raw);
     Object.assign(state, saved);
     state.lang = saved.lang || state.lang;
+    if (key === "az900-run") sessionStorage.removeItem("az900-run");
+    if (!exams[state.examId]?.[state.lang]) state.examId = "az-900";
     if (saved.paused) {
       state.deadline = 0;
       state.remaining = saved.remaining ?? state.remaining;
@@ -118,7 +131,8 @@ function restore() {
       state.remaining = Math.max(0, Math.round((state.deadline - Date.now()) / 1000));
     }
   } catch {
-    sessionStorage.removeItem("az900-run");
+    sessionStorage.removeItem(key);
+    sessionStorage.removeItem(runPointerKey);
   }
 }
 
@@ -129,7 +143,7 @@ function resetAttempt() {
   state.marked = {};
   state.locked = {};
   state.deadline = 0;
-  state.remaining = 45 * 60;
+  state.remaining = exam()?.durationSec ?? 45 * 60;
   state.submitted = false;
   state.timedOut = false;
   state.caseView = "question";
@@ -497,7 +511,7 @@ const ICON = {
 const SWATCH = `<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14" aria-hidden="true"><rect width="22" height="14" class="has-fill-body-background"></rect><rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect><rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect><rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect><rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect><rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect><rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect><rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect></svg>`;
 
 function examRows() {
-  if (!exams[state.lang]) return [];
+  if (!exam()) return [];
   const rows = [];
   exam().sections.forEach((sec, si) => {
     sec.questions.forEach((item, qi) => {
@@ -814,15 +828,16 @@ function posterScreen() {
 
 function introScreen() {
   const strings = t();
+  const doc = exam();
   const body = `<div class="ITSDisplay">
     <p class="kicker">${esc(strings.introKicker)}</p>
-    <h2>${esc(strings.examTitle)}</h2>
-    <p>${esc(strings.introLead)}</p>
-    <ul>${strings.introPoints.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
+    <h2>${esc(doc.title)}</h2>
+    <p>${esc(doc.introLead)}</p>
+    <ul>${doc.introPoints.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
     <p class="note">${esc(strings.unofficial)}</p>
   </div>`;
   return msShell({
-    title: "AZ-900",
+    title: esc(doc.examId),
     body,
     preexam: true,
     showClock: false,
@@ -836,13 +851,13 @@ function introScreen() {
 
 function readyScreen() {
   const strings = t();
-  const doc = exams[state.lang];
+  const doc = exam();
   const independent = doc.sections[0].questions.length;
   const caseCount = doc.sections[1].questions.length;
   const body = `<div class="ITSDisplay">
     <h2>${esc(strings.readyTitle)}</h2>
-    <p>${esc(strings.examTitle)} — AZ-900</p>
-    <p>${esc(strings.time)} : 45 ${esc(strings.minutes)}</p>
+    <p>${esc(doc.title)} — ${esc(doc.examId)}</p>
+    <p>${esc(strings.time)} : ${Math.round(doc.durationSec / 60)} ${esc(strings.minutes)}</p>
     <p>${esc(strings.questions)} : ${independent + caseCount}</p>
     <p>${esc(strings.independent)} : ${independent}</p>
     <p>${esc(strings.caseSection)} : ${caseCount}</p>
@@ -1145,8 +1160,9 @@ app.addEventListener("click", (event) => {
   if (!el || el.disabled) return;
   const action = el.dataset.action;
   if (action === "lang") setLang(el.dataset.lang);
-  else if (action === "unavailable") showToast(t().unavailableToast);
+  else if (action === "unavailable") showToast(`${t().unavailableToast} ${catalog.cards.filter((card) => card.available).map((card) => card.code).join(", ")}`);
   else if (action === "open") {
+    if (exams[el.dataset.id]?.[state.lang]) state.examId = el.dataset.id;
     resetAttempt();
     state.screen = "intro";
     render();
@@ -1155,8 +1171,8 @@ app.addEventListener("click", (event) => {
     render();
   } else if (action === "begin") {
     resetAttempt();
-    state.deadline = Date.now() + 45 * 60 * 1000;
-    state.remaining = 45 * 60;
+    state.deadline = Date.now() + exam().durationSec * 1000;
+    state.remaining = exam().durationSec;
     state.screen = "exam";
     startTicker();
     pendingFocus = "#question-heading";
@@ -1396,14 +1412,14 @@ window.addEventListener("beforeunload", (event) => {
 });
 
 try {
-  const [loadedCatalog, en, fr] = await Promise.all([
-    fetch("./data/catalog.json").then((response) => response.json()),
-    fetch("./data/az-900/en.json").then((response) => response.json()),
-    fetch("./data/az-900/fr.json").then((response) => response.json()),
-  ]);
-  catalog = loadedCatalog;
-  exams.en = en;
-  exams.fr = fr;
+  catalog = await fetch("./data/catalog.json").then((response) => response.json());
+  await Promise.all(catalog.cards.filter((card) => card.available).flatMap((card) => ["en", "fr"].map((lang) =>
+    fetch(`./data/${card.id}/${lang}.json`).then((response) => response.json()).then((doc) => {
+      exams[card.id] = exams[card.id] || {};
+      exams[card.id][lang] = doc;
+    })
+  )));
+  if (!exams[state.examId]) state.examId = catalog.cards.find((card) => card.available)?.id || state.examId;
   restore();
   if ((state.screen === "exam" || state.screen === "review") && !state.submitted && state.remaining > 0) startTicker();
   if ((state.screen === "exam" || state.screen === "review") && state.remaining <= 0 && !state.submitted) finish(true);

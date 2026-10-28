@@ -94,7 +94,7 @@ test("tous les contrôles rendus", async ({ page }) => {
       node.click();
       return document.querySelector(".toast")?.textContent || "";
     });
-    expect(toast).toContain("Seul AZ-900 est ouvert");
+    expect(toast).toContain("AZ-900, SC-900");
   }
 
   const toggle = page.locator("#MenuToggle");
@@ -112,10 +112,10 @@ test("tous les contrôles rendus", async ({ page }) => {
   await pickTheme(page, "default");
   await expect(page.locator("html")).not.toHaveClass(/dark-mode|yellow-on-black/);
 
-  await page.locator('[data-action="open"]').click();
+  await page.locator('[data-action="open"][data-id="az-900"]').click();
   await page.locator("#Back").click();
-  await expect(page.locator('[data-action="open"]')).toBeVisible();
-  await page.locator('[data-action="open"]').click();
+  await expect(page.locator('[data-action="open"][data-id="az-900"]')).toBeVisible();
+  await page.locator('[data-action="open"][data-id="az-900"]').click();
   await page.locator('[data-action="to-ready"]').click();
   await page.locator('[data-action="to-intro"]').click();
   await page.locator('[data-action="to-ready"]').click();

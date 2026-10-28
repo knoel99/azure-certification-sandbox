@@ -28,7 +28,7 @@ async function newTab(browser, testInfo) {
 }
 
 async function beginExam(page) {
-  await page.locator('[data-action="open"]').click();
+  await page.locator('[data-action="open"][data-id="az-900"]').click();
   await page.locator('[data-action="to-ready"]').click();
   await page.locator('[data-action="begin"]').click();
 }
@@ -67,8 +67,8 @@ test("deux onglets du même navigateur : tentatives isolées", async ({ browser 
   await expect(tabA.locator("html")).toHaveAttribute("lang", "fr");
   await expect(tabB.locator("html")).toHaveAttribute("lang", "en");
   await expectQuestion(tabA, first);
-  const runA = JSON.parse(await tabA.evaluate(() => sessionStorage.getItem("az900-run")));
-  const runB = JSON.parse(await tabB.evaluate(() => sessionStorage.getItem("az900-run")));
+  const runA = JSON.parse(await tabA.evaluate(() => sessionStorage.getItem("run-az-900")));
+  const runB = JSON.parse(await tabB.evaluate(() => sessionStorage.getItem("run-az-900")));
   expect(runA.answers[first.id]).toEqual(first.correct);
   expect(runB.answers[first.id]).toBeUndefined();
   expect(runB.questionIndex).toBe(1);
@@ -77,8 +77,8 @@ test("deux onglets du même navigateur : tentatives isolées", async ({ browser 
   await finishFromExam(tabB);
   await expect(tabB.locator("p.score")).toContainText("0 / 40");
   await expectQuestion(tabA, first);
-  const runA2 = JSON.parse(await tabA.evaluate(() => sessionStorage.getItem("az900-run")));
-  const runB2 = JSON.parse(await tabB.evaluate(() => sessionStorage.getItem("az900-run")));
+  const runA2 = JSON.parse(await tabA.evaluate(() => sessionStorage.getItem("run-az-900")));
+  const runB2 = JSON.parse(await tabB.evaluate(() => sessionStorage.getItem("run-az-900")));
   expect(runA2.submitted).toBe(false);
   expect(runB2.submitted).toBe(true);
 
