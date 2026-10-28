@@ -1,0 +1,808 @@
+{
+  "examId": "SC-900",
+  "title": "Principes de base de la sécurité, de la conformité et de l'identité Microsoft",
+  "durationSec": 2700,
+  "introLead": "40 questions, 45 minutes. Les questions suivent l'ordre du guide d'étude SC-900 — concepts de sécurité, de conformité et d'identité, Microsoft Entra, solutions de sécurité, solutions de conformité — puis une étude de cas.",
+  "introPoints": [
+    "Deux sections : les questions indépendantes, puis une étude de cas. Quand vous ouvrez l'étude de cas, vous ne pouvez plus revenir aux questions indépendantes.",
+    "Plusieurs types de questions : choix unique, choix multiple, glisser-déposer, liste à ordonner, écran actif, zone réactive, document, oui/non.",
+    "Aucune correction pendant l'épreuve. Le score, le raisonnement et le lien Microsoft Learn apparaissent à la fin.",
+    "Le score affiché est un score brut. L'examen réel utilise une note échelonnée sur 1 000, avec 700 pour réussir. Ce pourcentage n'est pas une note officielle."
+  ],
+  "domains": [
+    { "id": "concepts", "label": "Décrire les concepts de sécurité, de conformité et d'identité" },
+    { "id": "entra", "label": "Décrire les capacités de Microsoft Entra" },
+    { "id": "security", "label": "Décrire les capacités des solutions de sécurité Microsoft" },
+    { "id": "compliance", "label": "Décrire les capacités des solutions de conformité Microsoft" }
+  ],
+  "sections": [
+    {
+      "id": "independent",
+      "title": "Questions indépendantes",
+      "case": false,
+      "questions": [
+        {
+          "id": "s01",
+          "type": "single",
+          "domain": "concepts",
+          "objective": "Décrire la responsabilité partagée dans le cloud",
+          "stem": "Une entreprise utilise une application SaaS de facturation. Qui est responsable de classifier et de protéger les dossiers clients enregistrés dans cette application ?",
+          "choices": [
+            { "id": "A", "text": "Le client" },
+            { "id": "B", "text": "Le fournisseur du SaaS" },
+            { "id": "C", "text": "Le fournisseur d'accès à Internet de l'entreprise" },
+            { "id": "D", "text": "Personne, car les données SaaS sont publiques par conception" }
+          ],
+          "correct": ["A"],
+          "rationale": "Dans le modèle de responsabilité partagée, les informations et les données restent toujours la responsabilité du client, quel que soit le niveau de service. Le fournisseur exploite l'application, mais ne classe ni ne possède les dossiers du client.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s02",
+          "type": "single",
+          "domain": "concepts",
+          "objective": "Décrire la défense en profondeur",
+          "stem": "Une organisation combine pare-feu, appareils corrigés, contrôles d'application et chiffrement des fichiers, si bien qu'un attaquant qui franchit une couche affronte encore la suivante. Quelle est cette approche ?",
+          "choices": [
+            { "id": "A", "text": "La défense en profondeur" },
+            { "id": "B", "text": "Un point d'application unique" },
+            { "id": "C", "text": "La confiance implicite du réseau interne" },
+            { "id": "D", "text": "La conformité par exception" }
+          ],
+          "correct": ["A"],
+          "rationale": "La défense en profondeur superpose plusieurs contrôles — physique, réseau, appareil, application et données — pour ralentir ou stopper une intrusion qui franchit une couche.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s03",
+          "type": "single",
+          "domain": "concepts",
+          "objective": "Décrire le modèle Zero Trust",
+          "stem": "Une politique vérifie l'identité, l'état de l'appareil et l'emplacement à chaque requête, y compris pour les requêtes venant du réseau de l'entreprise. Quel principe Zero Trust cela illustre-t-il ?",
+          "choices": [
+            { "id": "A", "text": "Vérifier explicitement" },
+            { "id": "B", "text": "Supposer qu'aucune intrusion n'est possible" },
+            { "id": "C", "text": "Faire confiance au périmètre" },
+            { "id": "D", "text": "Appliquer les correctifs une fois par an" }
+          ],
+          "correct": ["A"],
+          "rationale": "Vérifier explicitement signifie toujours authentifier et autoriser avec toutes les données disponibles — identité, appareil, emplacement — au lieu de faire confiance à un emplacement réseau. Les autres principes Zero Trust sont l'accès le moins privilégié et la supposition de violation.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s04",
+          "type": "multi",
+          "domain": "concepts",
+          "select": 2,
+          "objective": "Décrire les principes Zero Trust",
+          "stem": "Quels deux principes font partie du modèle Zero Trust ?",
+          "choices": [
+            { "id": "A", "text": "Vérifier explicitement" },
+            { "id": "B", "text": "Utiliser l'accès le moins privilégié" },
+            { "id": "C", "text": "Faire confiance par défaut au réseau de l'entreprise" },
+            { "id": "D", "text": "Attribuer le rôle Administrateur général à tous" },
+            { "id": "E", "text": "Éviter de journaliser les connexions" }
+          ],
+          "correct": ["A", "B"],
+          "rationale": "Le Zero Trust repose sur vérifier explicitement, utiliser l'accès le moins privilégié et supposer la violation. Faire confiance au réseau par défaut, surattribuer des rôles et ignorer les journaux contredisent le modèle.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s05",
+          "type": "multi",
+          "domain": "concepts",
+          "select": 2,
+          "objective": "Décrire la triade DIC",
+          "stem": "Une réglementation impose que les dossiers médicaux restent illisibles pour les étrangers et que personne ne puisse les modifier sans que cela soit détecté. Quels deux objectifs de la triade DIC sont visés ?",
+          "choices": [
+            { "id": "A", "text": "La confidentialité" },
+            { "id": "B", "text": "L'intégrité" },
+            { "id": "C", "text": "La rentabilité" },
+            { "id": "D", "text": "La popularité" },
+            { "id": "E", "text": "La disponibilité des données marketing" }
+          ],
+          "correct": ["A", "B"],
+          "rationale": "Garder les dossiers illisibles pour les étrangers, c'est la confidentialité ; détecter toute modification, c'est l'intégrité. La disponibilité, troisième objectif, concerne la continuité du service.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s06",
+          "type": "drag",
+          "domain": "concepts",
+          "objective": "Décrire le chiffrement et le hachage",
+          "stem": "Associez chaque besoin de protection au concept qui le satisfait.",
+          "sources": [
+            { "id": "rest", "text": "Chiffrement au repos" },
+            { "id": "transit", "text": "Chiffrement en transit" },
+            { "id": "hash", "text": "Hachage" }
+          ],
+          "targets": [
+            { "id": "t1", "label": "Protéger un fichier de base de données posé sur un disque de stockage." },
+            { "id": "t2", "label": "Protéger des informations d'identification envoyées à un site web via TLS." },
+            { "id": "t3", "label": "Produire une empreinte de longueur fixe qui révèle toute modification d'un fichier." }
+          ],
+          "correct": { "t1": "rest", "t2": "transit", "t3": "hash" },
+          "rationale": "Les données posées sur un disque se protègent par le chiffrement au repos. Les données qui circulent sur le réseau exigent le chiffrement en transit. Le hachage produit une empreinte déterministe qui détecte les modifications ; ce n'est pas du chiffrement.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s07",
+          "type": "single",
+          "domain": "concepts",
+          "objective": "Décrire les concepts de gouvernance et de conformité",
+          "stem": "Pour une entreprise qui opère dans l'Union européenne, quel type d'exigence représente le RGPD ?",
+          "choices": [
+            { "id": "A", "text": "Une politique réglementaire émise par un gouvernement" },
+            { "id": "B", "text": "Une politique organisationnelle rédigée par l'équipe informatique" },
+            { "id": "C", "text": "Un élément facultatif d'une feuille de route produit" },
+            { "id": "D", "text": "Une garantie matérielle" }
+          ],
+          "correct": ["A"],
+          "rationale": "Les autorités publiques édictent des politiques réglementaires comme le RGPD, auxquelles les organisations doivent se conformer. Les politiques internes ne doivent jamais entrer en conflit avec la réglementation.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s08",
+          "type": "hot",
+          "domain": "concepts",
+          "select": 1,
+          "objective": "Décrire les concepts d'identité",
+          "stem": "L'authentification multifacteur ajoute une seconde preuve à la connexion. Sélectionnez le processus d'identité qu'elle renforce.",
+          "regions": [
+            { "id": "ident", "label": "Identification", "detail": "L'utilisateur déclare qui il est, par exemple avec un nom d'utilisateur." },
+            { "id": "authn", "label": "Authentification", "detail": "L'utilisateur prouve qui il est, par exemple avec un mot de passe et une validation sur téléphone." },
+            { "id": "authz", "label": "Autorisation", "detail": "Le système décide de ce que l'utilisateur prouvé a le droit de faire." }
+          ],
+          "correct": ["authn"],
+          "rationale": "L'authentification consiste à prouver son identité. Un second facteur — ce que vous possédez ou ce que vous êtes — renforce cette preuve. L'identification n'est qu'une déclaration de nom, et l'autorisation intervient après la preuve.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s09",
+          "type": "build",
+          "domain": "concepts",
+          "select": 4,
+          "objective": "Décrire le processus de contrôle d'accès",
+          "stem": "Classez les quatre étapes du contrôle d'accès, de la première à la dernière.",
+          "choices": [
+            { "id": "ident", "text": "Identification — l'utilisateur présente un nom d'utilisateur" },
+            { "id": "authn", "text": "Authentification — l'utilisateur prouve son identité" },
+            { "id": "authz", "text": "Autorisation — le système accorde les actions permises" },
+            { "id": "audit", "text": "Comptabilisation — l'activité est journalisée pour audit" }
+          ],
+          "correct": ["ident", "authn", "authz", "audit"],
+          "rationale": "Le contrôle d'accès commence par l'identification, puis l'authentification, puis l'autorisation, et enfin la comptabilisation qui enregistre les actions pour un audit ultérieur.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s10",
+          "type": "single",
+          "domain": "concepts",
+          "objective": "Décrire le moindre privilège",
+          "stem": "Un agent du centre d'assistance doit réinitialiser les mots de passe des utilisateurs, sans gérer les licences ni les abonnements. Quel principe doit guider le rôle que vous attribuez ?",
+          "choices": [
+            { "id": "A", "text": "Le moindre privilège" },
+            { "id": "B", "text": "La confiance implicite" },
+            { "id": "C", "text": "La séparation des tâches, pour que l'agent approuve aussi les paiements" },
+            { "id": "D", "text": "Le maximum de confort, avec tous Administrateur général" }
+          ],
+          "correct": ["A"],
+          "rationale": "Le moindre privilège n'accorde que les permissions nécessaires à la tâche, par exemple un rôle de réinitialisation de mots de passe, ce qui limite les dégâts si le compte est compromis.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/"
+        },
+        {
+          "id": "s11",
+          "type": "single",
+          "domain": "entra",
+          "objective": "Décrire Microsoft Entra ID",
+          "stem": "Quel service Microsoft est le service cloud de gestion des identités et des accès anciennement nommé Azure Active Directory ?",
+          "choices": [
+            { "id": "A", "text": "Microsoft Entra ID" },
+            { "id": "B", "text": "Active Directory Domain Services sur une machine virtuelle" },
+            { "id": "C", "text": "Microsoft Defender for Cloud" },
+            { "id": "D", "text": "Azure Virtual Desktop" }
+          ],
+          "correct": ["A"],
+          "rationale": "Microsoft Entra ID est le service cloud de gestion des identités et des accès, successeur de nom d'Azure Active Directory. AD DS reste un service d'annuaire local distinct.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s12",
+          "type": "single",
+          "domain": "entra",
+          "objective": "Distinguer authentification et autorisation",
+          "stem": "Un utilisateur est connecté. Le système vérifie maintenant les rôles attribués avant d'ouvrir l'application de paie. Quel processus s'exécute ?",
+          "choices": [
+            { "id": "A", "text": "L'autorisation" },
+            { "id": "B", "text": "L'authentification" },
+            { "id": "C", "text": "La répudiation" },
+            { "id": "D", "text": "L'usurpation d'identité" }
+          ],
+          "correct": ["A"],
+          "rationale": "L'autorisation détermine ce qu'une identité authentifiée peut faire, par exemple via des rôles. L'authentification a déjà prouvé qui est l'utilisateur ; répudiation et usurpation sont des concepts de menaces.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s13",
+          "type": "multi",
+          "domain": "entra",
+          "select": 2,
+          "objective": "Décrire les facteurs d'authentification multifacteur",
+          "stem": "Quelles deux options sont des catégories valides de facteurs d'authentification multifacteur ?",
+          "choices": [
+            { "id": "A", "text": "Ce que vous savez, comme un mot de passe ou un code PIN" },
+            { "id": "B", "text": "Ce que vous possédez, comme un téléphone enregistré ou une carte à puce" },
+            { "id": "C", "text": "Votre couleur préférée" },
+            { "id": "D", "text": "La ville où vous êtes né" },
+            { "id": "E", "text": "Le nom de votre premier animal de compagnie" }
+          ],
+          "correct": ["A", "B"],
+          "rationale": "Les catégories de facteurs sont ce que vous savez, ce que vous possédez et ce que vous êtes. Couleur préférée, ville de naissance et nom d'animal sont des questions de sécurité, pas des facteurs MFA.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s14",
+          "type": "drag",
+          "domain": "entra",
+          "objective": "Décrire les rôles Microsoft Entra",
+          "stem": "Associez chaque tâche au rôle Microsoft Entra le moins privilégié capable de l'effectuer.",
+          "sources": [
+            { "id": "uadmin", "text": "Administrateur d'utilisateurs" },
+            { "id": "caadmin", "text": "Administrateur d'Accès conditionnel" },
+            { "id": "secadmin", "text": "Administrateur de sécurité" },
+            { "id": "billing", "text": "Administrateur de facturation" }
+          ],
+          "targets": [
+            { "id": "t1", "label": "Réinitialiser les mots de passe et créer les comptes du centre d'assistance." },
+            { "id": "t2", "label": "Créer les politiques qui exigent l'authentification multifacteur à la connexion." },
+            { "id": "t3", "label": "Examiner les connexions à risque signalées par Identity Protection et écarter les faux positifs." }
+          ],
+          "correct": { "t1": "uadmin", "t2": "caadmin", "t3": "secadmin" },
+          "rationale": "L'Administrateur d'utilisateurs gère comptes et mots de passe. L'Administrateur d'Accès conditionnel possède les politiques de connexion. L'Administrateur de sécurité traite les données de sécurité comme les connexions à risque. L'Administrateur de facturation est le distracteur : il gère les abonnements, pas les identités.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s15",
+          "type": "single",
+          "domain": "entra",
+          "objective": "Décrire l'authentification unique",
+          "stem": "Les employés se connectent une fois le matin puis ouvrent le CRM, l'intranet et la messagerie sans retaper d'identifiants. Quelle fonctionnalité le permet ?",
+          "choices": [
+            { "id": "A", "text": "L'authentification unique" },
+            { "id": "B", "text": "La pulvérisation de mots de passe" },
+            { "id": "C", "text": "La récupération sans mot de passe" },
+            { "id": "D", "text": "Des comptes locaux distincts pour chaque application" }
+          ],
+          "correct": ["A"],
+          "rationale": "L'authentification unique (SSO) authentifie l'utilisateur une fois et réutilise cette identité dans les applications, ce qui améliore à la fois la productivité et la sécurité. La pulvérisation de mots de passe est une attaque, pas une fonctionnalité.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s16",
+          "type": "active",
+          "domain": "entra",
+          "objective": "Décrire l'Accès conditionnel",
+          "stem": "Créez une politique d'Accès conditionnel pour que chaque utilisateur fournisse une seconde preuve à la connexion. Réglez les deux paramètres.",
+          "panelTitle": "Accès conditionnel — Nouvelle politique",
+          "controls": [
+            {
+              "id": "users",
+              "label": "Utilisateurs",
+              "options": [
+                { "id": "all", "text": "Tous les utilisateurs" },
+                { "id": "admins", "text": "Uniquement les administrateurs" },
+                { "id": "guests", "text": "Uniquement les utilisateurs invités" }
+              ]
+            },
+            {
+              "id": "grant",
+              "label": "Contrôle d'octroi",
+              "options": [
+                { "id": "mfa", "text": "Exiger l'authentification multifacteur" },
+                { "id": "block", "text": "Bloquer totalement l'accès" },
+                { "id": "open", "text": "Autoriser l'accès sans condition" }
+              ]
+            }
+          ],
+          "correct": { "users": "all", "grant": "mfa" },
+          "rationale": "L'exigence couvre tous les utilisateurs : la politique cible donc Tous les utilisateurs, et le contrôle d'octroi exige l'authentification multifacteur. Bloquer l'accès enfermerait tout le monde, et autoriser sans condition n'imposerait rien.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s17",
+          "type": "single",
+          "domain": "entra",
+          "objective": "Décrire les identités externes",
+          "stem": "Une comptable externe doit collaborer sur des documents avec ses propres identifiants, sans recevoir de mot de passe interne. Quelle capacité Microsoft Entra convient ?",
+          "choices": [
+            { "id": "A", "text": "La collaboration B2B avec un utilisateur invité" },
+            { "id": "B", "text": "Un mot de passe de boîte partagée pour tous" },
+            { "id": "C", "text": "La créer comme Administrateur général" },
+            { "id": "D", "text": "Désactiver l'authentification multifacteur pour les partenaires" }
+          ],
+          "correct": ["A"],
+          "rationale": "La collaboration B2B de Microsoft Entra invite les partenaires externes comme invités qui se connectent avec leur propre identité, tandis que vos politiques d'accès conditionnel continuent de s'appliquer. Mots de passe partagés et sécurité abaissée sont l'inverse des bonnes pratiques.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s18",
+          "type": "build",
+          "domain": "entra",
+          "select": 4,
+          "objective": "Décrire la création d'une politique d'Accès conditionnel",
+          "stem": "Classez les étapes de création d'une politique d'Accès conditionnel, du début à la fin.",
+          "choices": [
+            { "id": "users", "text": "Attribuer les utilisateurs ou groupes visés par la politique" },
+            { "id": "apps", "text": "Sélectionner les applications ou actions cloud" },
+            { "id": "grant", "text": "Définir les contrôles d'accès, comme exiger l'MFA" },
+            { "id": "enable", "text": "Activer la politique, après un test en mode rapport seul" }
+          ],
+          "correct": ["users", "apps", "grant", "enable"],
+          "rationale": "Une politique d'Accès conditionnel se construit en attribuant les utilisateurs, puis les applications ciblées, puis les contrôles d'octroi ou de session ; elle n'agit qu'une fois activée, idéalement après un test en mode rapport seul.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s19",
+          "type": "exhibit",
+          "domain": "entra",
+          "objective": "Comparer les éditions Microsoft Entra",
+          "stem": "Consultez le tableau des éditions, puis choisissez l'édition la moins chère qui inclut l'Accès conditionnel.",
+          "exhibits": [
+            {
+              "id": "editions",
+              "title": "Éditions de Microsoft Entra ID",
+              "columns": ["Édition", "Capacités incluses"],
+              "rows": [
+                ["Gratuit", "Authentification unique, rapports de base, paramètres de sécurité par défaut"],
+                ["P1", "Tout Gratuit, plus l'Accès conditionnel et l'identité hybride"],
+                ["P2", "Tout P1, plus Identity Protection avec rapports basés sur le risque"]
+              ]
+            }
+          ],
+          "choices": [
+            { "id": "A", "text": "Microsoft Entra ID Gratuit" },
+            { "id": "B", "text": "Microsoft Entra ID P1" },
+            { "id": "C", "text": "Microsoft Entra ID P2" },
+            { "id": "D", "text": "L'Accès conditionnel ne nécessite aucune édition" }
+          ],
+          "correct": ["B"],
+          "rationale": "Le tableau montre que l'Accès conditionnel arrive avec P1, donc l'édition la moins chère qui l'inclut. Gratuit s'arrête aux paramètres de sécurité par défaut, et P2 ajoute des fonctions de risque inutiles ici.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s20",
+          "type": "single",
+          "domain": "security",
+          "objective": "Décrire Microsoft Sentinel",
+          "stem": "Quelle solution est un SIEM natif du cloud qui collecte la télémétrie de nombreuses sources, la corrèle avec des règles d'analyse et permet de répondre avec des playbooks ?",
+          "choices": [
+            { "id": "A", "text": "Microsoft Sentinel" },
+            { "id": "B", "text": "Pare-feu Azure" },
+            { "id": "C", "text": "Microsoft Priva" },
+            { "id": "D", "text": "Réseau virtuel Azure" }
+          ],
+          "correct": ["A"],
+          "rationale": "Microsoft Sentinel est la solution cloud de gestion des informations et événements de sécurité (SIEM) : des connecteurs ingèrent les données, des règles d'analyse détectent les menaces et des playbooks automatisent la réponse.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s21",
+          "type": "single",
+          "domain": "security",
+          "objective": "Décrire Microsoft Defender XDR",
+          "stem": "Les attaques traversent désormais la messagerie, les points de terminaison et les identités au sein d'une même campagne. Quelle solution corrèle la détection et la réponse automatisée sur ces domaines ?",
+          "choices": [
+            { "id": "A", "text": "Microsoft Defender XDR" },
+            { "id": "B", "text": "Azure DDoS Protection" },
+            { "id": "C", "text": "Microsoft Entra Connect" },
+            { "id": "D", "text": "Analyseur Azure Information Protection" }
+          ],
+          "correct": ["A"],
+          "rationale": "Microsoft Defender XDR unifie les signaux de Defender pour point de terminaison, Defender pour Office 365, Defender pour Identity et Entra ID en incidents corrélés avec réponse automatisée.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s22",
+          "type": "single",
+          "domain": "security",
+          "objective": "Décrire Microsoft Defender for Cloud",
+          "stem": "Une équipe veut évaluer en continu la posture de sécurité de ses charges de travail Azure et hybrides, avec des recommandations pour l'améliorer. Quel service le fournit ?",
+          "choices": [
+            { "id": "A", "text": "Microsoft Defender for Cloud" },
+            { "id": "B", "text": "Microsoft Defender pour Office 365" },
+            { "id": "C", "text": "Microsoft Sentinel" },
+            { "id": "D", "text": "Microsoft Entra ID Governance" }
+          ],
+          "correct": ["A"],
+          "rationale": "Microsoft Defender for Cloud est la solution de gestion de la posture de sécurité cloud et de protection des charges pour Azure, hybride et multicloud, et il émet des recommandations hiérarchisées.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s23",
+          "type": "multi",
+          "domain": "security",
+          "select": 2,
+          "objective": "Décrire les capacités de Defender for Cloud",
+          "stem": "Quelles deux capacités sont fournies par Microsoft Defender for Cloud ?",
+          "choices": [
+            { "id": "A", "text": "Le Secure Score pour mesurer et améliorer la posture" },
+            { "id": "B", "text": "Un tableau de bord de conformité réglementaire" },
+            { "id": "C", "text": "L'envoi d'e-mails marketing aux clients" },
+            { "id": "D", "text": "L'hébergement de bureaux virtuels pour les télétravailleurs" },
+            { "id": "E", "text": "La rédaction automatique de rapports Power BI" }
+          ],
+          "correct": ["A", "B"],
+          "rationale": "Defender for Cloud expose le Secure Score et un tableau de bord de conformité réglementaire qui confronte les évaluations à des normes comme ISO et NIST. Il n'exécute ni marketing, ni bureaux virtuels, ni rapports.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s24",
+          "type": "drag",
+          "domain": "security",
+          "objective": "Comparer les solutions de sécurité Microsoft",
+          "stem": "Associez chaque besoin à la solution Microsoft la plus adaptée.",
+          "sources": [
+            { "id": "sentinel", "text": "Microsoft Sentinel" },
+            { "id": "dfc", "text": "Microsoft Defender for Cloud" },
+            { "id": "doff", "text": "Microsoft Defender pour Office 365" }
+          ],
+          "targets": [
+            { "id": "t1", "label": "Corréler les alertes de nombreuses sources en incidents et répondre avec des playbooks." },
+            { "id": "t2", "label": "Évaluer en continu la posture des abonnements Azure et recevoir des recommandations de correction." },
+            { "id": "t3", "label": "Retirer les pièces jointives et liens malveillants des e-mails avant leur ouverture." }
+          ],
+          "correct": { "t1": "sentinel", "t2": "dfc", "t3": "doff" },
+          "rationale": "Sentinel est le SIEM qui corrèle en incidents. Defender for Cloud évalue la posture des charges de travail. Defender pour Office 365 protège la messagerie et la collaboration du hameçonnage et des programmes malveillants.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s25",
+          "type": "single",
+          "domain": "security",
+          "objective": "Décrire le Pare-feu Azure",
+          "stem": "Quel service est un pare-feu managé, hautement disponible et natif du cloud, qui filtre le trafic vers et depuis les ressources Azure ?",
+          "choices": [
+            { "id": "A", "text": "Le Pare-feu Azure" },
+            { "id": "B", "text": "Azure Front Door" },
+            { "id": "C", "text": "Azure Traffic Manager" },
+            { "id": "D", "text": "Azure DNS" }
+          ],
+          "correct": ["A"],
+          "rationale": "Le Pare-feu Azure est le service de pare-feu étatique managé avec haute disponibilité intégrée et renseignements sur les menaces. Front Door et Traffic Manager acheminent le trafic, et Azure DNS résout les noms.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s26",
+          "type": "single",
+          "domain": "security",
+          "objective": "Décrire les capacités de chiffrement",
+          "stem": "Les données d'une base Azure SQL sont chiffrées de façon transparente en AES 256 bits lorsqu'elles reposent sur le stockage. Quelle protection est décrite ?",
+          "choices": [
+            { "id": "A", "text": "Le chiffrement au repos" },
+            { "id": "B", "text": "Le chiffrement en transit" },
+            { "id": "C", "text": "La stéganographie" },
+            { "id": "D", "text": "La limitation de débit" }
+          ],
+          "correct": ["A"],
+          "rationale": "Chiffrer les données stockées en AES-256 via le chiffrement transparent des données, c'est le chiffrement au repos. Le chiffrement en transit protège les données en mouvement, et la stéganographie cache des messages dans d'autres contenus.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s27",
+          "type": "active",
+          "domain": "security",
+          "objective": "Décrire la mise en route de Microsoft Sentinel",
+          "stem": "Mettez en place Microsoft Sentinel pour la première fois : choisissez le connecteur de l'activité des abonnements Azure et le type de règle d'analyse qui corèle automatiquement les attaques à plusieurs étapes. Réglez les deux paramètres.",
+          "panelTitle": "Microsoft Sentinel — Mise en route",
+          "controls": [
+            {
+              "id": "connector",
+              "label": "Connecteur de données",
+              "options": [
+                { "id": "activity", "text": "Connecteur du journal d'activité Azure" },
+                { "id": "none", "text": "Aucun connecteur, Sentinel fonctionne hors ligne" },
+                { "id": "marketing", "text": "Connecteur de campagnes marketing" }
+              ]
+            },
+            {
+              "id": "rule",
+              "label": "Règle d'analyse",
+              "options": [
+                { "id": "fusion", "text": "Règle de corrélation Fusion" },
+                { "id": "manual", "text": "Relecture manuelle de chaque ligne de journal" },
+                { "id": "none", "text": "Aucune règle, les alertes sont facultatives" }
+              ]
+            }
+          ],
+          "correct": { "connector": "activity", "rule": "fusion" },
+          "rationale": "Le connecteur du journal d'activité Azure ingère les événements d'audit de l'abonnement, et Fusion est la règle d'apprentissage automatique qui corèle les signaux de faible fidélité en détections d'incidents à plusieurs étapes.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s28",
+          "type": "build",
+          "domain": "security",
+          "select": 4,
+          "objective": "Décrire le flux de travail Sentinel",
+          "stem": "Classez le flux de travail Microsoft Sentinel, de la première étape à la dernière.",
+          "choices": [
+            { "id": "connect", "text": "Connecter les sources de données avec des connecteurs" },
+            { "id": "detect", "text": "Détecter les menaces avec des règles d'analyse" },
+            { "id": "investigate", "text": "Investiguer les incidents et chasser les menaces" },
+            { "id": "respond", "text": "Répondre automatiquement avec des playbooks" }
+          ],
+          "correct": ["connect", "detect", "investigate", "respond"],
+          "rationale": "Sentinel commence par ingérer les données, puis les règles d'analyse soulèvent des incidents, les analystes investiguent et chassent, et les playbooks automatisent la réponse.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s29",
+          "type": "single",
+          "domain": "security",
+          "objective": "Décrire le Secure Score",
+          "stem": "Les équipes sécurité veulent un chiffre unique qui mesure la posture de sécurité de l'organisation et les actions d'amélioration qui l'élèvent. Comment s'appelle-t-il ?",
+          "choices": [
+            { "id": "A", "text": "Le Secure Score" },
+            { "id": "B", "text": "Le score de conformité d'un rapport financier" },
+            { "id": "C", "text": "Le pourcentage de SLA de disponibilité" },
+            { "id": "D", "text": "Le taux d'utilisation des licences" }
+          ],
+          "correct": ["A"],
+          "rationale": "Le Secure Score agrège l'état des contrôles de sécurité en une mesure unique et liste des actions d'amélioration hiérarchisées. C'est un indicateur de sécurité, ni financier ni de disponibilité.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s30",
+          "type": "multi",
+          "domain": "security",
+          "select": 2,
+          "objective": "Décrire les composants de Microsoft Defender XDR",
+          "stem": "Quelles deux solutions font partie de la famille Microsoft Defender XDR ?",
+          "choices": [
+            { "id": "A", "text": "Microsoft Defender pour point de terminaison" },
+            { "id": "B", "text": "Microsoft Defender pour Office 365" },
+            { "id": "C", "text": "Microsoft Sentinel" },
+            { "id": "D", "text": "Le Pare-feu Azure" },
+            { "id": "E", "text": "Microsoft Priva" }
+          ],
+          "correct": ["A", "B"],
+          "rationale": "Defender pour point de terminaison et Defender pour Office 365 sont des composants de Defender XDR, couvrant les appareils et la collaboration. Sentinel est un SIEM distinct, le Pare-feu Azure un service réseau, et Priva traite la confidentialité.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s31",
+          "type": "single",
+          "domain": "compliance",
+          "objective": "Décrire Microsoft Purview",
+          "stem": "Quelle famille de produits regroupe les solutions Microsoft de gouvernance des données, de risque et de conformité, comme la protection contre la perte de données, la rétention et l'audit ?",
+          "choices": [
+            { "id": "A", "text": "Microsoft Purview" },
+            { "id": "B", "text": "Microsoft Defender XDR" },
+            { "id": "C", "text": "Azure Blueprints" },
+            { "id": "D", "text": "Microsoft Entra External ID" }
+          ],
+          "correct": ["A"],
+          "rationale": "Microsoft Purview est la famille gouvernance des données et conformité : la protection contre la perte de données, la rétention, l'audit, le risque interne et la gestion des enregistrements vivent sous Purview.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance-solutions/"
+        },
+        {
+          "id": "s32",
+          "type": "single",
+          "domain": "compliance",
+          "objective": "Décrire le Gestionnaire de conformité",
+          "stem": "Un responsable conformité veut des évaluations prêtes à l'emploi des réglementations, une liste d'actions d'amélioration et un score qui suit les progrès. Quel outil le fournit ?",
+          "choices": [
+            { "id": "A", "text": "Le Gestionnaire de conformité Microsoft Purview" },
+            { "id": "B", "text": "Azure Cost Management" },
+            { "id": "C", "text": "Les classeurs Microsoft Sentinel" },
+            { "id": "D", "text": "Azure Advisor" }
+          ],
+          "correct": ["A"],
+          "rationale": "Le Gestionnaire de conformité propose des modèles d'évaluation réglementaire, des actions d'amélioration et un score de conformité qui mesure les progrès vers les normes choisies.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance-solutions/"
+        },
+        {
+          "id": "s33",
+          "type": "single",
+          "domain": "compliance",
+          "objective": "Décrire les étiquettes de confidentialité",
+          "stem": "Les documents sont marqués Public, Interne ou Confidentiel, et ce marquage applique un chiffrement et des filigranes qui suivent le fichier. Comment s'appellent ces marquages ?",
+          "choices": [
+            { "id": "A", "text": "Les étiquettes de confidentialité" },
+            { "id": "B", "text": "Les étiquettes de rétention" },
+            { "id": "C", "text": "Les balises de ressource Azure" },
+            { "id": "D", "text": "Les noms de branches Git" }
+          ],
+          "correct": ["A"],
+          "rationale": "Les étiquettes de confidentialité classifient et protègent le contenu — chiffrement, filigranes et restrictions d'accès accompagnent le document ou l'e-mail partout. Les étiquettes de rétention gèrent la durée de vie, pas la confidentialité.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance-solutions/"
+        },
+        {
+          "id": "s34",
+          "type": "multi",
+          "domain": "compliance",
+          "select": 2,
+          "objective": "Décrire Microsoft Purview Information Protection",
+          "stem": "Quelles deux capacités appartiennent à Microsoft Purview Information Protection ?",
+          "choices": [
+            { "id": "A", "text": "Les étiquettes de confidentialité avec paramètres de protection" },
+            { "id": "B", "text": "Les stratégies de protection contre la perte de données" },
+            { "id": "C", "text": "Les conservations de dossiers eDiscovery" },
+            { "id": "D", "text": "Les règles de Pare-feu Azure" },
+            { "id": "E", "text": "Les requêtes de chasse Sentinel" }
+          ],
+          "correct": ["A", "B"],
+          "rationale": "Information Protection couvre la classification et la protection des données par les étiquettes de confidentialité, et la prévention du partage excessif par les stratégies DLP. eDiscovery est une autre zone Purview, et pare-feu et chasse relèvent de la sécurité.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance-solutions/"
+        },
+        {
+          "id": "s35",
+          "type": "drag",
+          "domain": "compliance",
+          "objective": "Comparer les solutions Purview",
+          "stem": "Associez chaque exigence à la solution Microsoft Purview qui la satisfait.",
+          "sources": [
+            { "id": "dlp", "text": "Protection contre la perte de données" },
+            { "id": "retention", "text": "Stratégies de rétention" },
+            { "id": "insider", "text": "Gestion des risques internes" }
+          ],
+          "targets": [
+            { "id": "t1", "label": "Empêcher un e-mail contenant des numéros de carte bancaire de quitter l'organisation." },
+            { "id": "t2", "label": "Conserver les contrats sept ans, puis les supprimer automatiquement." },
+            { "id": "t3", "label": "Détecter les employés qui téléchargent massivement des données juste avant de démissionner." }
+          ],
+          "correct": { "t1": "dlp", "t2": "retention", "t3": "insider" },
+          "rationale": "La protection contre la perte de données inspecte et bloque le contenu sensible en transit. Les stratégies de rétention gèrent la durée de vie et la suppression automatique. La gestion des risques internes identifie les comportements internes à risque.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance-solutions/"
+        },
+        {
+          "id": "s36",
+          "type": "single",
+          "domain": "compliance",
+          "objective": "Décrire les stratégies de rétention",
+          "stem": "Un régulateur impose de conserver les factures dix ans puis de les supprimer définitivement. Quelle capacité Purview met en œuvre ce calendrier ?",
+          "choices": [
+            { "id": "A", "text": "Une stratégie de rétention avec suppression à l'issue de la période" },
+            { "id": "B", "text": "Une étiquette de confidentialité nommée Dix-ans" },
+            { "id": "C", "text": "Une règle de groupe de sécurité réseau" },
+            { "id": "D", "text": "Une politique d'Accès conditionnel" }
+          ],
+          "correct": ["A"],
+          "rationale": "Les stratégies de rétention conservent le contenu pendant une période définie puis peuvent le supprimer automatiquement, ce qui correspond au calendrier du régulateur. Les étiquettes classifient, et les autres options sont des contrôles de sécurité.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance-solutions/"
+        },
+        {
+          "id": "s37",
+          "type": "single",
+          "domain": "compliance",
+          "objective": "Décrire Microsoft Priva",
+          "stem": "L'équipe confidentialité veut cartographier les données personnelles stockées dans Microsoft 365, évaluer les risques de confidentialité et automatiser les demandes de droits des personnes concernées. Quelle solution convient ?",
+          "choices": [
+            { "id": "A", "text": "Microsoft Priva" },
+            { "id": "B", "text": "Microsoft Sentinel" },
+            { "id": "C", "text": "Azure DevOps" },
+            { "id": "D", "text": "Microsoft Defender pour point de terminaison" }
+          ],
+          "correct": ["A"],
+          "rationale": "Microsoft Priva aide à découvrir les données personnelles, à évaluer les risques de confidentialité et à traiter les demandes des personnes concernées, en complément des outils de conformité Purview.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance-solutions/"
+        }
+      ]
+    },
+    {
+      "id": "case",
+      "title": "Étude de cas",
+      "case": {
+        "title": "Fabrikam, Ltd.",
+        "topics": [
+          {
+            "id": "overview",
+            "title": "Présentation",
+            "paragraphs": [
+              "Fabrikam, Ltd. est une compagnie d'assurance basée à Marseille. Environ 3 000 employés rédigent des polices, gèrent les sinistres et accompagnent les clients depuis cinq agences.",
+              "Fabrikam migre sa messagerie et sa collaboration vers Microsoft 365 E5 et son application de sinistres vers Azure. La direction a approuvé un programme sécurité et conformité piloté par la DSI."
+            ]
+          },
+          {
+            "id": "environment",
+            "title": "Environnement actuel",
+            "paragraphs": [
+              "Les identités vivent dans une forêt Active Directory Domain Services locale. Les employés se connectent uniquement avec un mot de passe, et plusieurs équipes partagent des comptes administrateurs locaux.",
+              "Les auditeurs externes reçoivent une boîte partagée et son mot de passe pour examiner les documents. Les dossiers de sinistres sont stockés sur des serveurs de fichiers sans classification, et les sauvegardes sont conservées indéfiniment."
+            ]
+          },
+          {
+            "id": "security",
+            "title": "Exigences de sécurité",
+            "paragraphs": [
+              "Le hameçonnage a fortement augmenté l'an dernier. Fabrikam exige l'authentification multifacteur à chaque connexion, y compris pour les auditeurs externes, et veut que les e-mails malveillants soient retirés avant leur arrivée dans les boîtes.",
+              "L'équipe sécurité veut aussi une console unique qui corrèle les alertes des identités, de la messagerie et des charges de travail Azure en incidents que les analystes peuvent investiguer."
+            ]
+          },
+          {
+            "id": "compliance",
+            "title": "Exigences de conformité",
+            "paragraphs": [
+              "Assureur de l'Union européenne, Fabrikam doit conserver les dossiers de sinistres dix ans puis les supprimer, et les numéros de sécurité nationale ne doivent jamais quitter l'organisation par e-mail.",
+              "Le responsable conformité doit mesurer la posture de l'entreprise vis-à-vis du RGPD avec des évaluations prêtes à l'emploi et des actions d'amélioration."
+            ]
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "s38",
+          "type": "hot",
+          "domain": "entra",
+          "select": 2,
+          "objective": "Définir la portée de l'authentification multifacteur",
+          "stem": "Fabrikam exige l'authentification multifacteur à chaque connexion. Sélectionnez les deux groupes que la politique d'Accès conditionnel doit couvrir.",
+          "regions": [
+            { "id": "empl", "label": "Tous les employés", "detail": "Les 3 000 collaborateurs du siège et des agences." },
+            { "id": "guests", "label": "Les auditeurs externes", "detail": "Identités invitées à examiner les documents." },
+            { "id": "svc", "label": "Uniquement les comptes de service", "detail": "Comptes d'arrière-plan qui exécutent des tâches planifiées." },
+            { "id": "nobody", "label": "Personne avant la fin de la migration", "detail": "Reporter l'application d'un an." }
+          ],
+          "correct": ["empl", "guests"],
+          "rationale": "L'exigence couvre chaque connexion : employés et auditeurs invités s'authentifient tous deux auprès du locataire, donc les deux doivent être dans la portée. Une portée limitée aux comptes de service ou un report laisserait la plupart des utilisateurs sans protection.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/manage-identity-and-access/"
+        },
+        {
+          "id": "s39",
+          "type": "exhibit",
+          "domain": "security",
+          "objective": "Choisir une solution pour les menaces par e-mail",
+          "stem": "Utilisez le tableau des solutions, puis choisissez la solution qui retire les e-mails malveillants avant leur arrivée dans les boîtes.",
+          "exhibits": [
+            {
+              "id": "solutions",
+              "title": "Solutions de sécurité Microsoft",
+              "columns": ["Solution", "Vocation première"],
+              "rows": [
+                ["Microsoft Sentinel", "Corréler la télémétrie de nombreuses sources en incidents"],
+                ["Microsoft Defender pour Office 365", "Protéger la messagerie et la collaboration du hameçonnage et des programmes malveillants"],
+                ["Microsoft Defender for Cloud", "Évaluer et protéger la posture des charges cloud"],
+                ["Microsoft Entra ID P2", "Détecter les connexions à risque avec Identity Protection"]
+              ]
+            }
+          ],
+          "choices": [
+            { "id": "A", "text": "Microsoft Sentinel" },
+            { "id": "B", "text": "Microsoft Defender pour Office 365" },
+            { "id": "C", "text": "Microsoft Defender for Cloud" },
+            { "id": "D", "text": "Microsoft Entra ID P2" }
+          ],
+          "correct": ["B"],
+          "rationale": "Le tableau associe la protection de la messagerie contre le hameçonnage à Defender pour Office 365, qui détecte et retire les messages malveillants avant la remise. Les autres couvrent la corrélation, la posture et les connexions à risque.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-security-solutions/"
+        },
+        {
+          "id": "s40",
+          "type": "yesno",
+          "domain": "compliance",
+          "objective": "Appliquer les exigences de rétention et de DLP",
+          "stem": "Examinez les exigences de conformité, puis indiquez si chaque affirmation est prise en charge.",
+          "exhibits": [
+            {
+              "id": "reqs",
+              "title": "Exigences de conformité",
+              "columns": ["Exigence", "Règle"],
+              "rows": [
+                ["Dossiers de sinistres", "Conserver 10 ans, puis supprimer automatiquement"],
+                ["Numéros de sécurité nationale", "Ne doivent jamais quitter l'organisation par e-mail"],
+                ["Posture RGPD", "Mesurée avec des évaluations prêtes à l'emploi et des actions d'amélioration"]
+              ]
+            }
+          ],
+          "statements": [
+            { "id": "st1", "text": "Les dossiers de sinistres peuvent être supprimés automatiquement après dix ans." },
+            { "id": "st2", "text": "Les e-mails contenant des numéros de sécurité nationale peuvent être envoyés aux partenaires sans contrôle." }
+          ],
+          "correct": { "st1": "yes", "st2": "no" },
+          "rationale": "Les exigences prévoient une rétention de dix ans suivie d'une suppression automatique : la première affirmation est prise en charge. Les numéros de sécurité nationale ne doivent jamais quitter l'organisation par e-mail, donc les envoyer sans contrôle contredit les règles.",
+          "learnUrl": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-compliance-solutions/"
+        }
+      ]
+    }
+  ]
+}

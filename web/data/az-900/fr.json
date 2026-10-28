@@ -2,6 +2,13 @@
   "examId": "AZ-900",
   "title": "Microsoft Azure Fundamentals",
   "durationSec": 2700,
+  "introLead": "40 questions, 45 minutes. Les questions suivent l'ordre du guide d'étude AZ-900, puis une étude de cas.",
+  "introPoints": [
+    "Deux sections : les questions indépendantes, puis une étude de cas. Quand vous ouvrez l'étude de cas, vous ne pouvez plus revenir aux questions indépendantes.",
+    "Plusieurs types de questions : choix unique, choix multiple, glisser-déposer, liste à ordonner, écran actif, zone réactive, document, oui/non.",
+    "Aucune correction pendant l'épreuve. Le score, le raisonnement et le lien Microsoft Learn apparaissent à la fin.",
+    "Le score affiché est un score brut. L'examen réel utilise une note échelonnée sur 1 000, avec 700 pour réussir. Ce pourcentage n'est pas une note officielle."
+  ],
   "domains": [
     {
       "id": "cloud",
